@@ -1,36 +1,15 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BALA Trading System</title>
-<style>
-*{box-sizing:border-box}body{margin:0;background:#fafafa;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#171717}.wrap{max-width:760px;margin:0 auto;padding:24px 18px 44px}.panel{background:#fff;border:1px solid #e4e4e7;border-radius:22px;padding:24px;box-shadow:0 2px 10px rgba(0,0,0,.03)}.card{border:1px solid #e5e7eb;border-radius:18px;padding:16px;margin-bottom:14px}.name{font-size:18px;font-weight:700;margin-bottom:10px}.status{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;font-weight:700;font-size:15px}.green{background:#e9f9ef;color:#08783e}.red{background:#fff0f0;color:#c62828}.dot{width:8px;height:8px;border-radius:50%;background:currentColor}.login{display:inline-block;margin-top:10px;background:#c77b18;color:white;text-decoration:none;border-radius:999px;padding:11px 18px;font-weight:700}.meta{margin-top:9px;color:#666;font-size:14px}.actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}.btn{border:1px solid #ddd;background:#fff;border-radius:999px;padding:11px 16px;font-weight:700;cursor:pointer}.hero{margin:34px 4px 0}.hero h1{font-size:34px;margin:0 0 8px}.hero p{margin:0;color:#666;font-size:15px;line-height:1.5}.small{font-size:12px;color:#888;margin-top:18px}.live{color:#08783e;font-weight:700}.paper{color:#666;font-weight:700}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <section class="panel" id="dashboard"></section>
-  <section class="hero">
-    <h1>BALA Trading System</h1>
-    <p>Broker and strategy dashboard. Connection labels are dashboard status only; real broker authentication must be connected separately and credentials should never be placed in this HTML file.</p>
-    <div class="small">Updated: <span id="updated"></span></div>
-  </section>
-</div>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BALA Trading Control Center</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f6f7f9;color:#15171a;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}.wrap{max-width:980px;margin:auto;padding:18px}.top{background:#111827;color:#fff;border-radius:22px;padding:22px}.top h1{margin:0 0 6px;font-size:28px}.top p{margin:0;color:#cbd5e1}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.tab{border:0;border-radius:999px;padding:10px 14px;background:#263244;color:#fff;font-weight:700}.tab.active{background:#fff;color:#111827}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:16px}.card{background:#fff;border:1px solid #e2e5e9;border-radius:18px;padding:17px;box-shadow:0 2px 8px #00000008}.title{font-weight:800;font-size:17px}.muted{color:#68707c;font-size:13px;margin-top:5px}.row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:15px}.badge{padding:7px 10px;border-radius:999px;font-size:12px;font-weight:800}.ok{background:#e8f8ef;color:#08783e}.off{background:#f1f3f5;color:#555}.live{background:#fff1d8;color:#8a5200}.section{margin-top:20px}.section h2{font-size:20px;margin:0 0 10px}.control{display:flex;gap:10px;flex-wrap:wrap}.btn{border:1px solid #d7dbe0;background:#fff;border-radius:12px;padding:11px 14px;font-weight:750}.primary{background:#111827;color:#fff}.danger{background:#fff1f1;color:#b42318}.input{padding:11px 12px;border:1px solid #d7dbe0;border-radius:12px;background:#fff}.note{font-size:12px;color:#69717d;line-height:1.5;margin-top:12px}.footer{margin:22px 2px;color:#747b85;font-size:12px}
+</style></head><body><div class="wrap"><header class="top"><h1>BALA Trading Control Center</h1><p>One dashboard for brokers, BALA strategies, paper testing and live execution.</p><div class="tabs"><button class="tab active">Dashboard</button><button class="tab">Strategies</button><button class="tab">Paper Test</button><button class="tab">Live Trading</button></div></header>
+<section class="section"><h2>Broker Accounts</h2><div class="grid" id="brokers"></div></section>
+<section class="section"><h2>Strategy Engine</h2><div class="grid"><div class="card"><div class="title">BALA Trading Framework</div><div class="muted">15M structure · 5M confirmation · 1M execution</div><div class="row"><span>Engine</span><span class="badge ok">READY</span></div><div class="muted">Liquidity · CHARGE · BOS/CHoCH · OB · FVG · VWAP · FRVP · ORB · Footprint/Order Flow · Options confirmation</div></div><div class="card"><div class="title">Market Modes</div><div class="row"><span>Paper Trading</span><span class="badge ok">ENABLED</span></div><div class="row"><span>Live Trading</span><span class="badge off">OFF</span></div><div class="note">Live execution stays disabled until the broker API is securely configured and tested.</div></div></div></section>
+<section class="section"><h2>Paper Test</h2><div class="card"><div class="control"><select class="input" id="symbol"><option>BTCUSDT</option><option>SENSEX</option><option>NIFTY</option><option>XAUUSD</option></select><select class="input" id="tf"><option>1M execution</option><option>5M confirmation</option><option>15M structure</option></select><button class="btn primary" onclick="runPaper()">▶ Run Paper Test</button><button class="btn" onclick="clearLog()">Clear</button></div><div id="log" class="note">Ready. Paper-test results will appear here.</div></div></section>
+<section class="section"><h2>Secure API Setup</h2><div class="card"><div class="control"><button class="btn" onclick="showMsg('Groww API configuration area ready')">Connect Groww</button><button class="btn" onclick="showMsg('Zerodha API configuration area ready')">Connect Zerodha</button><button class="btn" onclick="showMsg('Kotak Neo API configuration area ready')">Connect Kotak Neo</button></div><div class="note">Do not paste API keys, secrets, TOTP seeds or passwords into this webpage. They will later be stored as GitHub Actions secrets / secure backend credentials.</div></div></section>
+<div class="footer">BALA Trading Control Center · Paper/Live controls are separated.</div></div>
 <script>
-const accounts=[
- {name:'Kite — father',status:'Incorrect api_key or access_token',kind:'red',login:true,meta:'3 strategies · all paper'},
- {name:'Kite — wife (Gold Mini)',status:'Incorrect api_key or access_token',kind:'red',login:true,meta:'1 strategy · all paper'},
- {name:'Kotak Neo',status:'Connected',kind:'green',login:false,meta:'auto-login via TOTP · 4 strategies · 1 live'},
- {name:'Groww',status:'Connected',kind:'green',login:false,meta:'1 strategy · all paper'},
- {name:'Kite — friend',status:'Login expired - log in today',kind:'red',login:true,meta:'5 strategies · all paper'}
-];
-const root=document.getElementById('dashboard');
-root.innerHTML=accounts.map((a,i)=>`<div class="card"><div class="name">${a.name}</div><span class="status ${a.kind}"><span class="dot"></span>${a.status}</span>${a.login?'<br><a class="login" href="#" onclick="demoLogin(event,'+i+')">🔑 Log in</a>':''}<div class="meta">${a.meta}</div></div>`).join('')+
-`<div class="actions"><button class="btn" onclick="exportCSV()">↓ Export to Excel</button><button class="btn" onclick="location.reload()">↻ Refresh</button></div>`;
-document.getElementById('updated').textContent=new Date().toLocaleString('en-IN');
-function demoLogin(e,i){e.preventDefault();alert('Login integration will be connected in the next step. Do not enter broker passwords or API secrets into this page.');}
-function exportCSV(){const rows=[['Account','Status','Strategies / Mode'],...accounts.map(a=>[a.name,a.status,a.meta])];const csv=rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\n');const blob=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='bala-trading-dashboard.csv';a.click();URL.revokeObjectURL(a.href)}
-</script>
-</body>
-</html>
+const brokers=[['Groww','Not connected','off'],['Zerodha','Not connected','off'],['Kotak Neo','Not connected','off']];
+document.getElementById('brokers').innerHTML=brokers.map(b=>`<div class="card"><div class="title">${b[0]}</div><div class="row"><span>Connection</span><span class="badge ${b[2]}">${b[1]}</span></div><div class="muted">API credentials: not configured</div></div>`).join('');
+function runPaper(){const s=document.getElementById('symbol').value,t=document.getElementById('tf').value;document.getElementById('log').innerHTML=`<b>Paper test started.</b> ${s} · ${t}<br>Signal engine: BALA framework · Execution: PAPER ONLY · Awaiting market data/backend connection.`}
+function clearLog(){document.getElementById('log').textContent='Ready. Paper-test results will appear here.'}function showMsg(x){alert(x+' — backend/API configuration is the next integration step.');}
+</script></body></html>
