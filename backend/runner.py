@@ -1,9 +1,12 @@
-"""Run BALA BTC analysis once, publish dashboard status, and optionally send Telegram alert.
-No exchange order is placed by this runner.
+"""Run BALA BTC analysis, publish dashboard status, and optionally send Telegram alert.
+
+Kotak Neo is used for Indian-market live quote snapshots when its API key is
+configured in GitHub Actions secrets. No exchange order is placed by this runner.
 """
 import os, json, time
 import requests
 from bala_engine import analyze
+from kotak_market import get_kotak_snapshot
 
 SYMBOL=os.getenv("BALA_SYMBOL","BTCUSDT")
 TOKEN=os.getenv("TELEGRAM_BOT_TOKEN","")
@@ -26,10 +29,11 @@ def market_price(symbol):
     return float(r.json()["price"])
 
 
-def write_status(s):
+def write_status(s, kotak):
     payload={
         "timestamp":int(time.time()),
-        "market":{"symbol":SYMBOL,"price":market_price(SYMBOL)},
+        "market":{"symbol":SYMBOL,"price":market_price(SYMBOL),"source":"Binance public feed"},
+        "kotak":kotak,
         "signal":{"side":s.side,"score":s.score,"entry":s.entry,"stop":s.stop,"t1":s.t1,"t2":s.t2,"reason":s.reason},
         "execution":"PAPER_ONLY",
         "live_execution":False
@@ -42,7 +46,8 @@ def write_status(s):
 
 def main():
     s=analyze(SYMBOL)
-    payload=write_status(s)
+    kotak=get_kotak_snapshot()
+    payload=write_status(s, kotak)
     print(json.dumps(payload,indent=2))
     if s.side in ("BUY","SELL") and s.score>=6:
         msg=(f"BALA BTC ALERT\n{SYMBOL} · {s.side}\nScore: {s.score}/7\n"
