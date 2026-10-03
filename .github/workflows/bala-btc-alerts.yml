@@ -6,7 +6,7 @@ on:
     - cron: '*/5 * * * *'
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: bala-btc-alerts
@@ -19,16 +19,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Install dependencies
         run: python -m pip install -r backend/requirements.txt
-      - name: Run BALA BTC analysis
+      - name: Run BALA BTC analysis and publish dashboard status
         working-directory: backend
         env:
           BALA_SYMBOL: BTCUSDT
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python runner.py
+      - name: Commit dashboard status
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dashboard/status.json
+          git diff --cached --quiet && echo "No dashboard status change" || git commit -m "Update BALA dashboard status"
+          git push
