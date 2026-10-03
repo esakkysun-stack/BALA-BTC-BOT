@@ -33,6 +33,9 @@ jobs:
         working-directory: backend
         env:
           BALA_SYMBOL: BTCUSDT
+          FYERS_SYMBOL: ${{ secrets.FYERS_SYMBOL || 'NSE:NIFTY50-INDEX' }}
+          FYERS_APP_ID: ${{ secrets.FYERS_APP_ID }}
+          FYERS_ACCESS_TOKEN: ${{ secrets.FYERS_ACCESS_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           KOTAK_CONSUMER_KEY: ${{ secrets.KOTAK_CONSUMER_KEY }}
