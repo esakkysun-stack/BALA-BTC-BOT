@@ -1,16 +1,17 @@
 """Run BALA BTC analysis, publish dashboard status, and optionally send Telegram alert.
 
-Kotak Neo is used for Indian-market live quote snapshots when its API key is
-configured in GitHub Actions secrets. Binance is optional for the dashboard:
-the browser already has a direct public BTC WebSocket, so a Binance outage in
-GitHub Actions must not block Kotak market data from being published.
+Kotak Neo is used for Indian-market live quote snapshots when configured.
+FYERS v3 is an optional Indian-market quote source. Binance remains optional
+for BTC dashboard analysis. Live order execution stays disabled.
 """
 import os, json, time
 import requests
 from bala_engine import analyze
 from kotak_market import get_kotak_snapshot
+from fyers_market import get_fyers_snapshot
 
 SYMBOL=os.getenv("BALA_SYMBOL","BTCUSDT")
+FYERS_SYMBOL=os.getenv("FYERS_SYMBOL","NSE:NIFTY50-INDEX")
 TOKEN=os.getenv("TELEGRAM_BOT_TOKEN","")
 CHAT_ID=os.getenv("TELEGRAM_CHAT_ID","")
 STATUS_PATH=os.path.join(os.path.dirname(__file__),"..","dashboard","status.json")
@@ -35,13 +36,11 @@ def safe_btc_analysis():
     try:
         return analyze(SYMBOL), None
     except Exception as exc:
-        # Do not block Indian-market publishing when Binance is unavailable
-        # from the GitHub runner (for example HTTP 451/geoblocking).
         print(f"BTC analysis unavailable: {exc}")
         return None, str(exc)
 
 
-def write_status(s, kotak, btc_error=None):
+def write_status(s, kotak, fyers, btc_error=None):
     try:
         btc_price=market_price(SYMBOL)
         btc_market={"symbol":SYMBOL,"price":btc_price,"source":"Binance public feed"}
@@ -57,7 +56,7 @@ def write_status(s, kotak, btc_error=None):
             "stop":None,
             "t1":None,
             "t2":None,
-            "reason":"BTC backend unavailable; Kotak market snapshot can still update"
+            "reason":"BTC backend unavailable; Indian-market snapshots can still update"
         }
     else:
         signal={
@@ -74,6 +73,7 @@ def write_status(s, kotak, btc_error=None):
         "timestamp":int(time.time()),
         "market":btc_market,
         "kotak":kotak,
+        "fyers":fyers,
         "signal":signal,
         "execution":"PAPER_ONLY",
         "live_execution":False
@@ -89,7 +89,8 @@ def write_status(s, kotak, btc_error=None):
 def main():
     s, btc_error=safe_btc_analysis()
     kotak=get_kotak_snapshot()
-    payload=write_status(s, kotak, btc_error)
+    fyers=get_fyers_snapshot(FYERS_SYMBOL)
+    payload=write_status(s, kotak, fyers, btc_error)
     print(json.dumps(payload,indent=2))
 
     if s is not None and s.side in ("BUY","SELL") and s.score>=6:
