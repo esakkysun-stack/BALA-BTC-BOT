@@ -1,0 +1,7 @@
+{
+  "timestamp": 0,
+  "market": {"symbol": "BTCUSDT", "price": null},
+  "signal": {"side": "WAIT", "score": 0, "entry": null, "stop": null, "t1": null, "t2": null, "reason": "Waiting for backend analysis"},
+  "execution": "PAPER_ONLY",
+  "live_execution": false
+}
