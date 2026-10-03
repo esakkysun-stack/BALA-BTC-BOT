@@ -1,7 +1,214 @@
 {
-  "timestamp": 0,
-  "market": {"symbol": "BTCUSDT", "price": null},
-  "signal": {"side": "WAIT", "score": 0, "entry": null, "stop": null, "t1": null, "t2": null, "reason": "Waiting for backend analysis"},
+  "timestamp": 1791005727,
+  "market": {
+    "symbol": "BTCUSDT",
+    "price": null,
+    "source": "Browser Binance public feed",
+    "error": "451 Client Error:  for url: https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+  },
+  "kotak": {
+    "connected": true,
+    "source": "Kotak Neo Trade API",
+    "markets": {
+      "NIFTY": {
+        "name": "Nifty 50",
+        "segment": "nse_cm",
+        "price": 22421.95,
+        "change": -198.5,
+        "percent_change": -0.8775,
+        "volume": "0",
+        "raw": {
+          "exchange_token": "Nifty 50",
+          "display_symbol": "Nifty 50-IN",
+          "exchange": "nse_cm",
+          "lstup_time": "Mon Jan 01 1900 05:21:10 GMT+0521 (India Standard Time)",
+          "ltp": "22421.95",
+          "last_traded_quantity": "0",
+          "total_buy": "0",
+          "total_sell": "0",
+          "last_volume": "0",
+          "avg_cost": "0",
+          "open_int": "0",
+          "change": "-198.5",
+          "per_change": "-0.8775",
+          "low_price_range": "0",
+          "high_price_range": "0",
+          "year_high": "0",
+          "year_low": "0",
+          "ohlc": {
+            "open": "22543.7",
+            "high": "22610.6",
+            "low": "22217.3",
+            "close": "22421.95"
+          },
+          "depth": {
+            "buy": [
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              }
+            ],
+            "sell": [
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              }
+            ]
+          }
+        }
+      },
+      "SENSEX": {
+        "name": "SENSEX",
+        "segment": "bse_cm",
+        "price": 71909.7,
+        "change": -570.59,
+        "percent_change": -0.7872,
+        "volume": "0",
+        "raw": {
+          "exchange_token": "SENSEX",
+          "display_symbol": "SENSEX-IN",
+          "exchange": "bse_cm",
+          "lstup_time": "Mon Jan 01 1900 05:21:10 GMT+0521 (India Standard Time)",
+          "ltp": "71909.7",
+          "last_traded_quantity": "0",
+          "total_buy": "0",
+          "total_sell": "0",
+          "last_volume": "0",
+          "avg_cost": "0",
+          "open_int": "0",
+          "change": "-570.59",
+          "per_change": "-0.7872",
+          "low_price_range": "0",
+          "high_price_range": "0",
+          "year_high": "0",
+          "year_low": "0",
+          "ohlc": {
+            "open": "72192.89",
+            "high": "72572.9",
+            "low": "71292.88",
+            "close": "71909.7"
+          },
+          "depth": {
+            "buy": [
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              }
+            ],
+            "sell": [
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              },
+              {
+                "price": "0",
+                "quantity": "0",
+                "orders": "0"
+              }
+            ]
+          }
+        }
+      },
+      "GOLD MINI": {
+        "name": "GOLD MINI",
+        "status": "token_not_configured"
+      },
+      "CRUDE OIL": {
+        "name": "CRUDE OIL",
+        "status": "token_not_configured"
+      }
+    },
+    "errors": []
+  },
+  "signal": {
+    "side": "WAIT",
+    "score": 0,
+    "entry": null,
+    "stop": null,
+    "t1": null,
+    "t2": null,
+    "reason": "BTC backend unavailable; Kotak market snapshot can still update"
+  },
   "execution": "PAPER_ONLY",
-  "live_execution": false
+  "live_execution": false,
+  "btc_backend_error": "451 Client Error:  for url: https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=15m&limit=120"
 }
