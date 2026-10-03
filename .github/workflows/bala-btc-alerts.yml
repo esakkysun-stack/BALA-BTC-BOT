@@ -33,6 +33,11 @@ jobs:
           BALA_SYMBOL: BTCUSDT
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          KOTAK_CONSUMER_KEY: ${{ secrets.KOTAK_CONSUMER_KEY }}
+          KOTAK_API_KEY: ${{ secrets.KOTAK_API_KEY }}
+          KOTAK_ACCESS_TOKEN: ${{ secrets.KOTAK_ACCESS_TOKEN }}
+          KOTAK_GOLD_MINI_TOKEN: ${{ secrets.KOTAK_GOLD_MINI_TOKEN }}
+          KOTAK_CRUDE_OIL_TOKEN: ${{ secrets.KOTAK_CRUDE_OIL_TOKEN }}
         run: python runner.py
       - name: Commit dashboard status
         run: |
