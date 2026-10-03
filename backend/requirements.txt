@@ -1,1 +1,2 @@
 requests>=2.31,<3
+kotakneoapi>=3.0.7,<4
