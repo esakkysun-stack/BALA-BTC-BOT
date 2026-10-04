@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791094982,
+  "timestamp": 1791096003,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 84974.03,
+    "price": 84980.0,
     "source": "Binance public market-data feed"
   },
   "kotak": {
@@ -395,7 +395,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 4,
+    "score": 0,
     "entry": null,
     "stop": null,
     "t1": null,
