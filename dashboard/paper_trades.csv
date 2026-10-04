@@ -1,1 +1,2 @@
 trade_id,opened_at,side,entry,stop,t1,t2,initial_qty,reason,exits,realized_pnl
+1,,LONG,85233.7,85220.0,85250.0,85270.0,,15m bullish structure; 5m pullback stabilized near 85220; 1m reclaimed 85230; strong bid liquidity was visible at the entry zone.,[],0

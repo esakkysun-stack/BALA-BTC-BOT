@@ -10,17 +10,17 @@
       "symbol": "BTCUSDT",
       "mode": "Aggressive paper trade",
       "side": "LONG",
-      "entry": 85233.70,
-      "stop": 85220.00,
-      "t1": 85250.00,
-      "t2": 85270.00,
-      "exit_price": 85270.00,
+      "entry": 85233.7,
+      "stop": 85220.0,
+      "t1": 85250.0,
+      "t2": 85270.0,
+      "exit_price": 85270.0,
       "exit_reason": "T2 HIT",
       "status": "T2 HIT",
       "reason": "15m bullish structure; 5m pullback stabilized near 85220; 1m reclaimed 85230; strong bid liquidity was visible at the entry zone.",
-      "points_to_exit": 36.30,
+      "points_to_exit": 36.3,
       "paper_only": true
     }
   ],
-  "updated_at": 1791133558
+  "updated_at": 1791146483
 }
