@@ -33,10 +33,13 @@ jobs:
           # Kotak requires websocket-client >=1.9, while FYERS pins 1.6.1.
           # Install FYERS without its stale pin; the supported 1.9.x client is compatible.
           python -m pip install --no-deps "fyers-apiv3>=3.1.0,<4"
-      - name: Run BALA BTC analysis and publish dashboard status
+      - name: Run BALA BTC analysis and paper trading
         working-directory: backend
         env:
           BALA_SYMBOL: BTCUSDT
+          PAPER_INITIAL_BALANCE: '10000'
+          PAPER_RISK_PCT: '1.0'
+          PAPER_MAX_NOTIONAL_PCT: '25'
           FYERS_SYMBOL: ${{ secrets.FYERS_SYMBOL || 'NSE:NIFTY50-INDEX' }}
           FYERS_APP_ID: ${{ secrets.FYERS_APP_ID }}
           FYERS_ACCESS_TOKEN: ${{ secrets.FYERS_ACCESS_TOKEN }}
@@ -48,10 +51,10 @@ jobs:
           KOTAK_GOLD_MINI_TOKEN: ${{ secrets.KOTAK_GOLD_MINI_TOKEN }}
           KOTAK_CRUDE_OIL_TOKEN: ${{ secrets.KOTAK_CRUDE_OIL_TOKEN }}
         run: python runner.py
-      - name: Commit dashboard status
+      - name: Commit dashboard and paper ledger
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dashboard/status.json
-          git diff --cached --quiet && echo "No dashboard status change" || git commit -m "Update BALA dashboard status"
+          git add dashboard/status.json dashboard/paper_trades.json
+          git diff --cached --quiet && echo "No dashboard/paper status change" || git commit -m "Update BALA BTC paper status"
           git push
