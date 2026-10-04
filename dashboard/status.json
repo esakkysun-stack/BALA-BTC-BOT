@@ -1,10 +1,9 @@
 {
-  "timestamp": 1791094924,
+  "timestamp": 1791094982,
   "market": {
     "symbol": "BTCUSDT",
-    "price": null,
-    "source": "Browser Binance public feed",
-    "error": "451 Client Error:  for url: https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
+    "price": 84974.03,
+    "source": "Binance public market-data feed"
   },
   "kotak": {
     "connected": true,
@@ -396,14 +395,13 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 0,
+    "score": 4,
     "entry": null,
     "stop": null,
     "t1": null,
     "t2": null,
-    "reason": "BTC backend unavailable; Indian-market snapshots can still update"
+    "reason": "Confirmation threshold not met; NO TRADE"
   },
   "execution": "PAPER_ONLY",
-  "live_execution": false,
-  "btc_backend_error": "451 Client Error:  for url: https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=15m&limit=120"
+  "live_execution": false
 }
