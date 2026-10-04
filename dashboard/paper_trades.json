@@ -1,0 +1,9 @@
+{
+  "mode": "PAPER_ONLY",
+  "initial_balance": 10000.0,
+  "balance": 10000.0,
+  "realized_pnl": 0.0,
+  "open_trade": null,
+  "trades": [],
+  "updated_at": 1791126005
+}
