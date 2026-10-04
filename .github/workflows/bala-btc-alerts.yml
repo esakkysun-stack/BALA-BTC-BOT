@@ -28,7 +28,11 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install dependencies
-        run: python -m pip install -r backend/requirements.txt
+        run: |
+          python -m pip install -r backend/requirements.txt
+          # Kotak requires websocket-client >=1.9, while FYERS pins 1.6.1.
+          # Install FYERS without its stale pin; the supported 1.9.x client is compatible.
+          python -m pip install --no-deps "fyers-apiv3>=3.1.0,<4"
       - name: Run BALA BTC analysis and publish dashboard status
         working-directory: backend
         env:
