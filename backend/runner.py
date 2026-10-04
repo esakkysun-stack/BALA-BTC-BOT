@@ -7,6 +7,7 @@ for BTC dashboard analysis. Live order execution stays disabled.
 import os, json, time
 import requests
 from bala_engine import analyze
+from binance_market import get_json
 from kotak_market import get_kotak_snapshot
 from fyers_market import get_fyers_snapshot
 
@@ -27,9 +28,8 @@ def telegram(text):
 
 
 def market_price(symbol):
-    r=requests.get("https://api.binance.com/api/v3/ticker/price",params={"symbol":symbol},timeout=10)
-    r.raise_for_status()
-    return float(r.json()["price"])
+    data=get_json("/api/v3/ticker/price", {"symbol":symbol})
+    return float(data["price"])
 
 
 def safe_btc_analysis():
@@ -43,10 +43,10 @@ def safe_btc_analysis():
 def write_status(s, kotak, fyers, btc_error=None):
     try:
         btc_price=market_price(SYMBOL)
-        btc_market={"symbol":SYMBOL,"price":btc_price,"source":"Binance public feed"}
+        btc_market={"symbol":SYMBOL,"price":btc_price,"source":"Binance public market-data feed"}
     except Exception as exc:
         print(f"BTC price unavailable: {exc}")
-        btc_market={"symbol":SYMBOL,"price":None,"source":"Browser Binance public feed","error":str(exc)}
+        btc_market={"symbol":SYMBOL,"price":None,"source":"Binance public market-data feed","error":str(exc)}
 
     if s is None:
         signal={
@@ -101,5 +101,6 @@ def main():
         print("Telegram alert:","SENT" if sent else "NOT CONFIGURED")
     else:
         print("NO TRADE — confirmation threshold not met or BTC backend unavailable")
+
 
 if __name__ == "__main__": main()
