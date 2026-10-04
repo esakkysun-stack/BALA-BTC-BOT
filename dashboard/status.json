@@ -1,5 +1,5 @@
 {
-  "timestamp": 1791020323,
+  "timestamp": 1791094571,
   "market": {
     "symbol": "BTCUSDT",
     "price": null,
@@ -387,6 +387,13 @@
     },
     "errors": []
   },
+  "fyers": {
+    "connected": false,
+    "symbol": "NSE:NIFTY50-INDEX",
+    "price": null,
+    "source": "FYERS",
+    "error": "FYERS_APP_ID or FYERS_ACCESS_TOKEN is not configured"
+  },
   "signal": {
     "side": "WAIT",
     "score": 0,
@@ -394,7 +401,7 @@
     "stop": null,
     "t1": null,
     "t2": null,
-    "reason": "BTC backend unavailable; Kotak market snapshot can still update"
+    "reason": "BTC backend unavailable; Indian-market snapshots can still update"
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
