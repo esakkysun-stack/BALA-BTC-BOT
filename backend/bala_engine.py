@@ -1,17 +1,17 @@
 """BALA BTC multi-factor signal engine (PAPER/ALERT ONLY).
 
-Uses Binance public klines only. No trading credentials and no exchange order execution.
-The engine combines the strongest available BALA concepts for BTC from OHLCV data:
-15M/5M structure, liquidity sweep, displacement, FVG, simple OB proxy,
-VWAP, RVOL, Heikin Ashi trend filter, RSI and a simple volume/order-flow proxy.
-True DOM/footprint/OI/IV data are NOT available from this public-kline feed and are
-therefore not fabricated.
+Aggressive paper mode: signals are eligible from 7/10 while still requiring
+multiple BALA confirmations. Uses Binance public klines only. No trading
+credentials and no exchange order execution.
 """
 from __future__ import annotations
 from dataclasses import dataclass
 from typing import List, Dict
 
 from binance_market import get_json
+
+AGGRESSIVE_MODE = True
+ENTRY_THRESHOLD = 7 if AGGRESSIVE_MODE else 8
 
 @dataclass
 class Signal:
@@ -84,13 +84,12 @@ def heikin_ashi(c):
 def fvg(c):
     if len(c)<3:return 0
     a,b,d=c[-3],c[-2],c[-1]
-    if d["low"] > a["high"]: return 1   # bullish imbalance
-    if d["high"] < a["low"]: return -1  # bearish imbalance
+    if d["low"] > a["high"]: return 1
+    if d["high"] < a["low"]: return -1
     return 0
 
 
 def orderflow_proxy(c):
-    """OHLCV-only proxy; never presented as true footprint/DOM data."""
     x=c[-1]
     rng=max(x["high"]-x["low"],1e-9)
     body=x["close"]-x["open"]
@@ -117,7 +116,6 @@ def analyze(symbol="BTCUSDT") -> Signal:
     imbalance=fvg(c1)
     flow=orderflow_proxy(c1)
 
-    # Score out of 11. Threshold 8 keeps the paper system selective.
     bull=bear=0; why_b=[]; why_s=[]
     if bull_break: bull+=2; why_b.append("15M/5M structure break")
     if bear_break: bear+=2; why_s.append("15M/5M structure break")
@@ -140,13 +138,13 @@ def analyze(symbol="BTCUSDT") -> Signal:
     if flow>=0.75: bull+=1; why_b.append("OHLCV aggressive-buy proxy")
     if flow<=-0.75: bear+=1; why_s.append("OHLCV aggressive-sell proxy")
 
-    if bull>=8 and bull>bear:
+    if bull>=ENTRY_THRESHOLD and bull>bear:
         stop=min(l5, p-a*1.2); risk=max(p-stop,a*0.8)
         return Signal("BUY",bull,p,stop,p+risk*1.5,p+risk*2.5," + ".join(why_b))
-    if bear>=8 and bear>bull:
+    if bear>=ENTRY_THRESHOLD and bear>bull:
         stop=max(h5, p+a*1.2); risk=max(stop-p,a*0.8)
         return Signal("SELL",bear,p,stop,p-risk*1.5,p-risk*2.5," + ".join(why_s))
-    return Signal("WAIT",max(bull,bear),None,None,None,None,"Confirmation threshold not met; NO TRADE")
+    return Signal("WAIT",max(bull,bear),None,None,None,None,f"Aggressive mode ON; score below {ENTRY_THRESHOLD}/10 threshold")
 
 
 if __name__ == "__main__":
