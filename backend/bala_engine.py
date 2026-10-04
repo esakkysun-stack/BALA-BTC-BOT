@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from typing import List, Dict
 import requests
 
-BASE = "https://api.binance.com/api/v3/klines"
+from binance_market import get_json
 
 @dataclass
 class Signal:
@@ -21,10 +21,9 @@ class Signal:
 
 
 def klines(symbol: str, interval: str, limit: int = 120) -> List[Dict[str, float]]:
-    r = requests.get(BASE, params={"symbol": symbol, "interval": interval, "limit": limit}, timeout=10)
-    r.raise_for_status()
+    rows = get_json("/api/v3/klines", {"symbol": symbol, "interval": interval, "limit": limit})
     out=[]
-    for x in r.json():
+    for x in rows:
         out.append({"open":float(x[1]),"high":float(x[2]),"low":float(x[3]),"close":float(x[4]),"volume":float(x[5]),"closed":True})
     return out
 
@@ -76,6 +75,7 @@ def analyze(symbol="BTCUSDT") -> Signal:
     if bear>=6 and bear>bull:
         stop=max(h5, p+a*1.2); risk=max(stop-p,a*0.8); return Signal("SELL",bear,p,stop,p-risk*1.5,p-risk*2.5,"15M/5M break + momentum/sweep confirmation")
     return Signal("WAIT",max(bull,bear),None,None,None,None,"Confirmation threshold not met; NO TRADE")
+
 
 if __name__ == "__main__":
     s=analyze(); print(s)
