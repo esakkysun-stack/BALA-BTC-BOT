@@ -1,3 +1,4 @@
 requests>=2.31,<3
 kotakneoapi>=3.0.7,<4
-fyers-apiv3>=3.1.0,<4
+websocket-client>=1.9,<2
+setuptools>=68
