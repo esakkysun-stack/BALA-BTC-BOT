@@ -49,10 +49,45 @@ jobs:
           KOTAK_GOLD_MINI_TOKEN: ${{ secrets.KOTAK_GOLD_MINI_TOKEN }}
           KOTAK_CRUDE_OIL_TOKEN: ${{ secrets.KOTAK_CRUDE_OIL_TOKEN }}
         run: python runner.py
+      - name: Export paper ledger CSV
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          src=Path('dashboard/paper_trades.json')
+          out=Path('dashboard/paper_trades.csv')
+          state=json.loads(src.read_text()) if src.exists() else {"trades":[]}
+          trades=state.get('trades',[])
+          fields=['trade_id','opened_at','side','entry','stop','t1','t2','initial_qty','reason','exits','realized_pnl']
+          with out.open('w',newline='',encoding='utf-8') as f:
+              w=csv.DictWriter(f,fieldnames=fields)
+              w.writeheader()
+              for i,t in enumerate(trades,1):
+                  exits=t.get('exits',[])
+                  pnl=sum(float(x.get('pnl',0)) for x in exits)
+                  w.writerow({
+                      'trade_id': i,
+                      'opened_at': t.get('opened_at',''),
+                      'side': t.get('side',''),
+                      'entry': t.get('entry',''),
+                      'stop': t.get('stop',''),
+                      't1': t.get('t1',''),
+                      't2': t.get('t2',''),
+                      'initial_qty': t.get('initial_qty',''),
+                      'reason': t.get('reason',''),
+                      'exits': json.dumps(exits,separators=(',',':')),
+                      'realized_pnl': pnl,
+                  })
+          PY
       - name: Commit dashboard and paper ledger
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dashboard/status.json dashboard/paper_trades.json
-          git diff --cached --quiet && echo "No dashboard/paper status change" || git commit -m "Update BALA BTC paper status"
-          git push
+          git add dashboard/status.json dashboard/paper_trades.json dashboard/paper_trades.csv
+          if git diff --cached --quiet; then
+            echo "No dashboard/paper status change"
+            exit 0
+          fi
+          git commit -m "Update BALA BTC paper status"
+          git pull --rebase origin main
+          git push origin HEAD:main
