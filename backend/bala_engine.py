@@ -1,8 +1,8 @@
 """BALA BTC multi-factor signal engine (PAPER/ALERT ONLY).
 
-Aggressive paper mode: signals are eligible from 7/10 while still requiring
-multiple BALA confirmations. Uses Binance public klines only. No trading
-credentials and no exchange order execution.
+Aggressive paper mode: signals are eligible above 5/10 (6+), while still
+requiring multiple BALA confirmations. Uses Binance public klines only. No
+trading credentials and no exchange order execution.
 """
 from __future__ import annotations
 from dataclasses import dataclass
@@ -11,7 +11,7 @@ from typing import List, Dict
 from binance_market import get_json
 
 AGGRESSIVE_MODE = True
-ENTRY_THRESHOLD = 7 if AGGRESSIVE_MODE else 8
+ENTRY_THRESHOLD = 6 if AGGRESSIVE_MODE else 8
 
 @dataclass
 class Signal:
@@ -144,7 +144,7 @@ def analyze(symbol="BTCUSDT") -> Signal:
     if bear>=ENTRY_THRESHOLD and bear>bull:
         stop=max(h5, p+a*1.2); risk=max(stop-p,a*0.8)
         return Signal("SELL",bear,p,stop,p-risk*1.5,p-risk*2.5," + ".join(why_s))
-    return Signal("WAIT",max(bull,bear),None,None,None,None,f"Aggressive mode ON; score below {ENTRY_THRESHOLD}/10 threshold")
+    return Signal("WAIT",max(bull,bear),None,None,None,None,f"Aggressive paper mode ON; score is {max(bull,bear)}/10; entry requires above 5")
 
 
 if __name__ == "__main__":
