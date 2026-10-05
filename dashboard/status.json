@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791178805,
+  "timestamp": 1791179805,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 85739.98,
+    "price": 85770.0,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -13,25 +13,25 @@
       "NIFTY": {
         "name": "Nifty 50",
         "segment": "nse_cm",
-        "price": 22494.6,
-        "change": 72.65,
-        "percent_change": 0.32,
+        "price": 22472.95,
+        "change": 51.0,
+        "percent_change": 0.23,
         "volume": "0",
         "display_symbol": "Nifty 50-IN",
         "raw": {
           "exchange_token": "Nifty 50",
           "display_symbol": "Nifty 50-IN",
           "exchange": "nse_cm",
-          "lstup_time": "1791178797",
-          "ltp": "22494.6000",
+          "lstup_time": "1791179793",
+          "ltp": "22472.9500",
           "last_traded_quantity": "0",
           "total_buy": "0",
           "total_sell": "0",
           "last_volume": "0",
           "avg_cost": "0",
           "open_int": "0",
-          "change": "72.6500",
-          "per_change": "0.3200",
+          "change": "51.0000",
+          "per_change": "0.2300",
           "low_price_range": "0",
           "high_price_range": "0",
           "year_high": "0",
@@ -39,7 +39,7 @@
           "ohlc": {
             "open": "22532.4000",
             "high": "22621.8000",
-            "low": "22460.8000",
+            "low": "22451.7000",
             "close": "22421.9500"
           },
           "depth": {
@@ -103,25 +103,25 @@
       "SENSEX": {
         "name": "SENSEX",
         "segment": "bse_cm",
-        "price": 72147.31,
-        "change": 237.61,
-        "percent_change": 0.33,
+        "price": 72097.5,
+        "change": 187.8,
+        "percent_change": 0.26,
         "volume": "0",
         "display_symbol": "SENSEX-IN",
         "raw": {
           "exchange_token": "SENSEX",
           "display_symbol": "SENSEX-IN",
           "exchange": "bse_cm",
-          "lstup_time": "1791178797",
-          "ltp": "72147.3100",
+          "lstup_time": "1791179793",
+          "ltp": "72097.5000",
           "last_traded_quantity": "0",
           "total_buy": "0",
           "total_sell": "0",
           "last_volume": "0",
           "avg_cost": "0",
           "open_int": "0",
-          "change": "237.6100",
-          "per_change": "0.3300",
+          "change": "187.8000",
+          "per_change": "0.2600",
           "low_price_range": "0",
           "high_price_range": "0",
           "year_high": "0",
@@ -129,7 +129,7 @@
           "ohlc": {
             "open": "72340.9500",
             "high": "72631.9300",
-            "low": "72052.1100",
+            "low": "72023.8400",
             "close": "71909.7000"
           },
           "depth": {
@@ -193,25 +193,25 @@
       "GOLD MINI": {
         "name": "571445",
         "segment": "mcx_fo",
-        "price": 148074.0,
-        "change": -981.0,
-        "percent_change": -0.66,
-        "volume": "805100",
+        "price": 147908.0,
+        "change": -1147.0,
+        "percent_change": -0.77,
+        "volume": "848100",
         "display_symbol": "GOLDM05NOV26FUT",
         "raw": {
           "exchange_token": "571445",
           "display_symbol": "GOLDM05NOV26FUT",
           "exchange": "mcx_fo",
-          "lstup_time": "1791178797",
-          "ltp": "148074.0000",
-          "last_traded_quantity": "100",
-          "total_buy": "113500",
-          "total_sell": "123800",
-          "last_volume": "805100",
-          "avg_cost": "148051.7200",
-          "open_int": "4326500",
-          "change": "-981.0000",
-          "per_change": "-0.6600",
+          "lstup_time": "1791179796",
+          "ltp": "147908.0000",
+          "last_traded_quantity": "200",
+          "total_buy": "112400",
+          "total_sell": "124800",
+          "last_volume": "848100",
+          "avg_cost": "148051.3900",
+          "open_int": "4331000",
+          "change": "-1147.0000",
+          "per_change": "-0.7700",
           "low_price_range": "144584.0000",
           "high_price_range": "153526.0000",
           "year_high": "0",
@@ -225,54 +225,54 @@
           "depth": {
             "buy": [
               {
-                "price": "148050.0000",
-                "quantity": "400",
+                "price": "147870.0000",
+                "quantity": "300",
                 "orders": "2"
               },
               {
-                "price": "148042.0000",
-                "quantity": "400",
+                "price": "147867.0000",
+                "quantity": "100",
                 "orders": "1"
               },
               {
-                "price": "148041.0000",
+                "price": "147866.0000",
+                "quantity": "100",
+                "orders": "1"
+              },
+              {
+                "price": "147864.0000",
                 "quantity": "200",
-                "orders": "1"
+                "orders": "2"
               },
               {
-                "price": "148040.0000",
-                "quantity": "100",
-                "orders": "1"
-              },
-              {
-                "price": "148034.0000",
-                "quantity": "100",
+                "price": "147856.0000",
+                "quantity": "200",
                 "orders": "1"
               }
             ],
             "sell": [
               {
-                "price": "148068.0000",
-                "quantity": "100",
-                "orders": "1"
-              },
-              {
-                "price": "148072.0000",
-                "quantity": "100",
-                "orders": "1"
-              },
-              {
-                "price": "148079.0000",
+                "price": "147903.0000",
                 "quantity": "200",
                 "orders": "1"
               },
               {
-                "price": "148080.0000",
-                "quantity": "200",
-                "orders": "2"
+                "price": "147908.0000",
+                "quantity": "100",
+                "orders": "1"
               },
               {
-                "price": "148085.0000",
+                "price": "147909.0000",
+                "quantity": "400",
+                "orders": "1"
+              },
+              {
+                "price": "147910.0000",
+                "quantity": "100",
+                "orders": "1"
+              },
+              {
+                "price": "147914.0000",
                 "quantity": "100",
                 "orders": "1"
               }
@@ -290,25 +290,25 @@
       "CRUDE OIL": {
         "name": "569900",
         "segment": "mcx_fo",
-        "price": 8700.0,
-        "change": -216.0,
-        "percent_change": -2.42,
-        "volume": "858600",
+        "price": 8670.0,
+        "change": -246.0,
+        "percent_change": -2.76,
+        "volume": "919500",
         "display_symbol": "CRUDEOIL19OCT26FUT",
         "raw": {
           "exchange_token": "569900",
           "display_symbol": "CRUDEOIL19OCT26FUT",
           "exchange": "mcx_fo",
-          "lstup_time": "1791178797",
-          "ltp": "8700.0000",
-          "last_traded_quantity": "100",
-          "total_buy": "79400",
-          "total_sell": "53400",
-          "last_volume": "858600",
-          "avg_cost": "8680.3900",
-          "open_int": "1021700",
-          "change": "-216.0000",
-          "per_change": "-2.4200",
+          "lstup_time": "1791179798",
+          "ltp": "8670.0000",
+          "last_traded_quantity": "400",
+          "total_buy": "63900",
+          "total_sell": "58100",
+          "last_volume": "919500",
+          "avg_cost": "8679.8300",
+          "open_int": "1030400",
+          "change": "-246.0000",
+          "per_change": "-2.7600",
           "low_price_range": "8560.0000",
           "high_price_range": "9272.0000",
           "year_high": "0",
@@ -322,56 +322,56 @@
           "depth": {
             "buy": [
               {
-                "price": "8700.0000",
-                "quantity": "400",
+                "price": "8668.0000",
+                "quantity": "900",
+                "orders": "4"
+              },
+              {
+                "price": "8667.0000",
+                "quantity": "1200",
+                "orders": "7"
+              },
+              {
+                "price": "8666.0000",
+                "quantity": "1500",
+                "orders": "9"
+              },
+              {
+                "price": "8665.0000",
+                "quantity": "700",
+                "orders": "6"
+              },
+              {
+                "price": "8664.0000",
+                "quantity": "300",
                 "orders": "3"
-              },
-              {
-                "price": "8699.0000",
-                "quantity": "1100",
-                "orders": "5"
-              },
-              {
-                "price": "8698.0000",
-                "quantity": "1100",
-                "orders": "6"
-              },
-              {
-                "price": "8697.0000",
-                "quantity": "1100",
-                "orders": "5"
-              },
-              {
-                "price": "8696.0000",
-                "quantity": "1900",
-                "orders": "6"
               }
             ],
             "sell": [
               {
-                "price": "8702.0000",
-                "quantity": "700",
+                "price": "8671.0000",
+                "quantity": "900",
                 "orders": "3"
               },
               {
-                "price": "8703.0000",
-                "quantity": "100",
-                "orders": "1"
-              },
-              {
-                "price": "8704.0000",
-                "quantity": "1000",
-                "orders": "5"
-              },
-              {
-                "price": "8705.0000",
+                "price": "8672.0000",
                 "quantity": "600",
                 "orders": "4"
               },
               {
-                "price": "8706.0000",
-                "quantity": "900",
-                "orders": "5"
+                "price": "8673.0000",
+                "quantity": "1800",
+                "orders": "8"
+              },
+              {
+                "price": "8674.0000",
+                "quantity": "1900",
+                "orders": "7"
+              },
+              {
+                "price": "8675.0000",
+                "quantity": "1600",
+                "orders": "7"
               }
             ]
           }
@@ -510,7 +510,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791178805
+    "updated_at": 1791179805
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
