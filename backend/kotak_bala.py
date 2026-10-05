@@ -22,10 +22,15 @@ def _resolve_token(client,segment,names):
         except Exception:pass
     return None,None
 
-def _candles(client,segment,token,interval,days=30):
+def _candles(client,segment,token,interval,days):
     now=datetime.now(IST); start=(now-timedelta(days=days)).strftime("%Y-%m-%d"); end=now.strftime("%Y-%m-%d")
     response=client.historical_data(neosymbol=f"{segment}|{token}",interval=interval,from_date=start,to_date=end)
-    rows=response.get("data",{}).get("candles",[]) if isinstance(response,dict) else []
+    if not isinstance(response,dict):raise RuntimeError(f"{interval}: unexpected historical-data response")
+    rows=response.get("data",{}).get("candles",[])
+    if not rows:
+        fault=response.get("fault") or response.get("error") or response.get("message")
+        if fault:raise RuntimeError(f"{interval}: {fault}")
+        return []
     return [{"open":_float(r[1]),"high":_float(r[2]),"low":_float(r[3]),"close":_float(r[4]),"volume":_float(r[5])} for r in rows if len(r)>=6]
 
 def _ema(vals,n):
@@ -60,8 +65,10 @@ def _fvg(c):
 
 def analyze_kotak(client,segment,token,name):
     try:
-        c15=_candles(client,segment,token,"15min",30); c5=_candles(client,segment,token,"5min",30); c1=_candles(client,segment,token,"1min",7)
-        if len(c15)<25 or len(c5)<25 or len(c1)<30:return {"side":"WAIT","score":0,"entry":None,"stop":None,"t1":None,"t2":None,"status":"NO TRADE","reason":"Waiting for sufficient 15M/5M/1M candles"}
+        # Keep each request inside Kotak Neo's documented historical-data limits.
+        c15=_candles(client,segment,token,"15min",30); c5=_candles(client,segment,token,"5min",20); c1=_candles(client,segment,token,"1min",7)
+        counts=f"15M={len(c15)}, 5M={len(c5)}, 1M={len(c1)}"
+        if len(c15)<25 or len(c5)<25 or len(c1)<30:return {"side":"WAIT","score":0,"entry":None,"stop":None,"t1":None,"t2":None,"status":"DATA WAIT","reason":f"Insufficient candles ({counts})"}
         p=c1[-1]["close"]; a=_atr(c1); e9=_ema([x["close"] for x in c1[-50:]],9); e21=_ema([x["close"] for x in c1[-70:]],21)
         h15=max(x["high"] for x in c15[-17:-1]); l15=min(x["low"] for x in c15[-17:-1]); h5=max(x["high"] for x in c5[-13:-1]); l5=min(x["low"] for x in c5[-13:-1])
         last,prev=c1[-1],c1[-2]; rng=max(last["high"]-last["low"],1e-9); body=abs(last["close"]-last["open"]); displacement=body/rng>=.65 and body>=max(a*.45,1e-9)
@@ -93,10 +100,19 @@ def analyze_kotak(client,segment,token,name):
 
 def get_kotak_bala_signals(consumer_key):
     if not consumer_key:return {},"KOTAK_CONSUMER_KEY is missing"
-    client=NeoAPI(consumer_key=consumer_key,environment="prod"); configs={"NIFTY":("nse_cm",("Nifty 50","NIFTY 50","NIFTY")),"SENSEX":("bse_cm",("SENSEX","BSE SENSEX"))}; out={}; errors=[]
-    for label,(segment,names) in configs.items():
-        token,trading_symbol=_resolve_token(client,segment,names)
-        if not token:
-            out[label]={"side":"WAIT","score":0,"entry":None,"stop":None,"t1":None,"t2":None,"status":"DATA WAIT","reason":"Index instrument token not resolved"};errors.append(f"{label}: token not resolved");continue
-        sig=analyze_kotak(client,segment,token,label);sig["instrument_token"]=token;sig["trading_symbol"]=trading_symbol;out[label]=sig
+    client=NeoAPI(consumer_key=consumer_key,environment="prod")
+    # Index identifiers are supported as names by Kotak Neo. Use canonical names first.
+    configs={"NIFTY":("nse_cm",("Nifty 50","NIFTY 50","NIFTY"),"Nifty 50"),"SENSEX":("bse_cm",("SENSEX","BSE SENSEX"),"SENSEX")}; out={}; errors=[]
+    for label,(segment,names,direct_token) in configs.items():
+        token,trading_symbol=direct_token,direct_token
+        sig=analyze_kotak(client,segment,token,label)
+        # Retry once through the scrip master if the canonical index name has no usable candles.
+        if sig.get("status")=="DATA WAIT" and "Insufficient candles" in sig.get("reason",""):
+            alt_token,alt_symbol=_resolve_token(client,segment,names)
+            if alt_token and alt_token!=token:
+                alt_sig=analyze_kotak(client,segment,alt_token,label)
+                if alt_sig.get("status")!="DATA WAIT" or "Insufficient candles" not in alt_sig.get("reason",""):
+                    token,trading_symbol,sig=alt_token,alt_symbol or alt_token,alt_sig
+        sig["instrument_token"]=str(token); sig["trading_symbol"]=trading_symbol; out[label]=sig
+        if sig.get("status")=="DATA WAIT":errors.append(f"{label}: {sig.get('reason')}")
     return out,"; ".join(errors) if errors else None
