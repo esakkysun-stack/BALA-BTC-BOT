@@ -1,391 +1,64 @@
 {
-  "timestamp": 1791158360,
+  "timestamp": 1791160218,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 86523.64,
+    "price": 86276.01,
     "source": "Binance public market-data feed",
     "error": null
   },
   "kotak": {
-    "connected": true,
+    "connected": false,
     "source": "Kotak Neo Trade API",
     "markets": {
       "NIFTY": {
         "name": "Nifty 50",
         "segment": "nse_cm",
-        "price": 22421.95,
-        "change": -198.5,
-        "percent_change": -0.8775,
-        "volume": "0",
-        "display_symbol": "Nifty 50-IN",
+        "price": null,
+        "change": null,
+        "percent_change": null,
+        "volume": null,
+        "display_symbol": null,
         "raw": {
-          "exchange_token": "Nifty 50",
-          "display_symbol": "Nifty 50-IN",
-          "exchange": "nse_cm",
-          "lstup_time": "Mon Jan 01 1900 05:21:10 GMT+0521 (India Standard Time)",
-          "ltp": "22421.95",
-          "last_traded_quantity": "0",
-          "total_buy": "0",
-          "total_sell": "0",
-          "last_volume": "0",
-          "avg_cost": "0",
-          "open_int": "0",
-          "change": "-198.5",
-          "per_change": "-0.8775",
-          "low_price_range": "0",
-          "high_price_range": "0",
-          "year_high": "0",
-          "year_low": "0",
-          "ohlc": {
-            "open": "22543.7",
-            "high": "22610.6",
-            "low": "22217.3",
-            "close": "22421.95"
-          },
-          "depth": {
-            "buy": [
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              }
-            ],
-            "sell": [
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              }
-            ]
-          }
+          "Error": "Unexpected response format",
+          "Exception": "Expecting value: line 1 column 1 (char 0)",
+          "StatusCode": 502,
+          "ContentType": "text/html",
+          "ResponseText": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>rdwr</center>\r\n</body>\r\n</html>\r\n",
+          "RequestURL": "https://mis.kotaksecurities.com/script-details/1.0/quotes/neosymbol/nse_cm|Nifty%2050/all"
         }
       },
       "SENSEX": {
         "name": "SENSEX",
         "segment": "bse_cm",
-        "price": 71909.7,
-        "change": -570.59,
-        "percent_change": -0.7872,
-        "volume": "0",
-        "display_symbol": "SENSEX-IN",
+        "price": null,
+        "change": null,
+        "percent_change": null,
+        "volume": null,
+        "display_symbol": null,
         "raw": {
-          "exchange_token": "SENSEX",
-          "display_symbol": "SENSEX-IN",
-          "exchange": "bse_cm",
-          "lstup_time": "Mon Jan 01 1900 05:21:10 GMT+0521 (India Standard Time)",
-          "ltp": "71909.7",
-          "last_traded_quantity": "0",
-          "total_buy": "0",
-          "total_sell": "0",
-          "last_volume": "0",
-          "avg_cost": "0",
-          "open_int": "0",
-          "change": "-570.59",
-          "per_change": "-0.7872",
-          "low_price_range": "0",
-          "high_price_range": "0",
-          "year_high": "0",
-          "year_low": "0",
-          "ohlc": {
-            "open": "72192.89",
-            "high": "72572.9",
-            "low": "71292.88",
-            "close": "71909.7"
-          },
-          "depth": {
-            "buy": [
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              }
-            ],
-            "sell": [
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              }
-            ]
-          }
+          "Error": "Unexpected response format",
+          "Exception": "Expecting value: line 1 column 1 (char 0)",
+          "StatusCode": 502,
+          "ContentType": "text/html",
+          "ResponseText": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>rdwr</center>\r\n</body>\r\n</html>\r\n",
+          "RequestURL": "https://mis.kotaksecurities.com/script-details/1.0/quotes/neosymbol/bse_cm|SENSEX/all"
         }
       },
       "GOLD MINI": {
-        "name": "569003",
-        "segment": "mcx_fo",
-        "price": 147729.0,
-        "change": 1578.0,
-        "percent_change": 1.0797,
-        "volume": "0",
-        "display_symbol": "GOLDM05OCT26FUT",
-        "raw": {
-          "exchange_token": "569003",
-          "display_symbol": "GOLDM05OCT26FUT",
-          "exchange": "mcx_fo",
-          "lstup_time": "Mon Jan 01 1900 05:21:10 GMT+0521 (India Standard Time)",
-          "ltp": "147729",
-          "last_traded_quantity": "100",
-          "total_buy": "0",
-          "total_sell": "0",
-          "last_volume": "0",
-          "avg_cost": "0",
-          "open_int": "1589",
-          "change": "1578",
-          "per_change": "1.0797",
-          "low_price_range": "143297.13",
-          "high_price_range": "152160.88",
-          "year_high": "0",
-          "year_low": "0",
-          "ohlc": {
-            "open": "146875",
-            "high": "148295",
-            "low": "146550",
-            "close": "147729"
-          },
-          "depth": {
-            "buy": [
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              }
-            ],
-            "sell": [
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              }
-            ]
-          }
-        },
-        "contract": {
-          "token": "569003",
-          "trading_symbol": "GOLDM05OCT26FUT",
-          "underlying": "GOLDM",
-          "expiry": "05Oct2026",
-          "expiry_timestamp": 1791158400.0
-        }
+        "name": "GOLD MINI",
+        "status": "contract_not_resolved",
+        "error": "MCX futures contract not found"
       },
       "CRUDE OIL": {
-        "name": "569900",
-        "segment": "mcx_fo",
-        "price": 8916.0,
-        "change": 182.0,
-        "percent_change": 2.0838,
-        "volume": "0",
-        "display_symbol": "CRUDEOIL19OCT26FUT",
-        "raw": {
-          "exchange_token": "569900",
-          "display_symbol": "CRUDEOIL19OCT26FUT",
-          "exchange": "mcx_fo",
-          "lstup_time": "Mon Jan 01 1900 05:21:10 GMT+0521 (India Standard Time)",
-          "ltp": "8916",
-          "last_traded_quantity": "100",
-          "total_buy": "0",
-          "total_sell": "0",
-          "last_volume": "0",
-          "avg_cost": "0",
-          "open_int": "11210",
-          "change": "182",
-          "per_change": "2.0838",
-          "low_price_range": "8559.36",
-          "high_price_range": "9272.64",
-          "year_high": "0",
-          "year_low": "0",
-          "ohlc": {
-            "open": "8715",
-            "high": "9027",
-            "low": "8533",
-            "close": "8916"
-          },
-          "depth": {
-            "buy": [
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              }
-            ],
-            "sell": [
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              },
-              {
-                "price": "0",
-                "quantity": "0",
-                "orders": "0"
-              }
-            ]
-          }
-        },
-        "contract": {
-          "token": "569900",
-          "trading_symbol": "CRUDEOIL19OCT26FUT",
-          "underlying": "CRUDEOIL",
-          "expiry": "19Oct2026",
-          "expiry_timestamp": 1792368000.0
-        }
+        "name": "CRUDE OIL",
+        "status": "contract_not_resolved",
+        "error": "MCX futures contract not found"
       }
     },
-    "errors": []
+    "errors": [
+      "GOLD MINI: MCX futures contract not found",
+      "CRUDE OIL: MCX futures contract not found"
+    ]
   },
   "fyers": {
     "connected": false,
@@ -396,7 +69,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 2,
+    "score": 3,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -412,8 +85,8 @@
       "stop": null,
       "t1": null,
       "t2": null,
-      "status": "NO TRADE",
-      "reason": "Waiting for sufficient 15M/5M/1M candles"
+      "status": "DATA WAIT",
+      "reason": "Index instrument token not resolved"
     },
     "SENSEX": {
       "side": "WAIT",
@@ -422,8 +95,8 @@
       "stop": null,
       "t1": null,
       "t2": null,
-      "status": "NO TRADE",
-      "reason": "Waiting for sufficient 15M/5M/1M candles"
+      "status": "DATA WAIT",
+      "reason": "Index instrument token not resolved"
     },
     "GOLD MINI": {
       "side": "WAIT",
@@ -447,7 +120,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 2,
+      "score": 3,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -480,9 +153,9 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791158360
+    "updated_at": 1791160218
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
-  "kotak_bala_error": null
+  "kotak_bala_error": "NIFTY: token not resolved; SENSEX: token not resolved"
 }
