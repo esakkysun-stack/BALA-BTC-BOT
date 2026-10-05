@@ -1,4 +1,4 @@
-"""BALA candle analysis for Kotak Neo NSE/BSE instruments."""
+"""BALA candle analysis for Kotak Neo NSE/BSE/MCX instruments."""
 from __future__ import annotations
 from datetime import datetime, timedelta, timezone
 from neo_api_client import NeoAPI
@@ -21,6 +21,31 @@ def _resolve_token(client,segment,names):
                         if token:return str(token),row.get("pTrdSymbol") or row.get("trading_symbol") or name
         except Exception:pass
     return None,None
+
+def _resolve_mcx_future(client,names):
+    candidates=[]
+    for name in names:
+        try:
+            rows=client.search_scrip(exchange_segment="mcx_fo",symbol=name,expiry="",option_type="FUT",strike_price="",ignore_50multiple=True)
+            if isinstance(rows,dict):rows=rows.get("data",rows.get("scrips",[]))
+            if isinstance(rows,list):candidates.extend(r for r in rows if isinstance(r,dict))
+        except Exception:pass
+    def expiry(row):
+        for key in ("pExpiryDate","pMaturityDate"):
+            value=row.get(key)
+            if isinstance(value,str) and value.strip():
+                for fmt in ("%d-%b-%Y","%d%b%Y","%Y-%m-%d","%d/%m/%Y"):
+                    try:return datetime.strptime(value.strip(),fmt).replace(tzinfo=timezone.utc).timestamp()
+                    except ValueError:pass
+        value=_float(row.get("lExpiryDate"),0)
+        return value/1000 if value>10_000_000_000 else value
+    now=datetime.now(timezone.utc).timestamp(); valid=[]
+    for row in candidates:
+        token=row.get("pSymbol") or row.get("instrument_token"); ex=expiry(row)
+        if token and ex>=now:valid.append((ex,str(token),row))
+    if not valid:return None,None
+    valid.sort(key=lambda x:x[0]); _,token,row=valid[0]
+    return token,row.get("pTrdSymbol") or row.get("trading_symbol")
 
 def _candles(client,segment,token,interval,days):
     now=datetime.now(IST); start=(now-timedelta(days=days)).strftime("%Y-%m-%d"); end=now.strftime("%Y-%m-%d")
@@ -65,7 +90,6 @@ def _fvg(c):
 
 def analyze_kotak(client,segment,token,name):
     try:
-        # Keep each request inside Kotak Neo's documented historical-data limits.
         c15=_candles(client,segment,token,"15min",30); c5=_candles(client,segment,token,"5min",20); c1=_candles(client,segment,token,"1min",7)
         counts=f"15M={len(c15)}, 5M={len(c5)}, 1M={len(c1)}"
         if len(c15)<25 or len(c5)<25 or len(c1)<30:return {"side":"WAIT","score":0,"entry":None,"stop":None,"t1":None,"t2":None,"status":"DATA WAIT","reason":f"Insufficient candles ({counts})"}
@@ -101,18 +125,21 @@ def analyze_kotak(client,segment,token,name):
 def get_kotak_bala_signals(consumer_key):
     if not consumer_key:return {},"KOTAK_CONSUMER_KEY is missing"
     client=NeoAPI(consumer_key=consumer_key,environment="prod")
-    # Index identifiers are supported as names by Kotak Neo. Use canonical names first.
-    configs={"NIFTY":("nse_cm",("Nifty 50","NIFTY 50","NIFTY"),"Nifty 50"),"SENSEX":("bse_cm",("SENSEX","BSE SENSEX"),"SENSEX")}; out={}; errors=[]
+    configs={
+        "NIFTY":("nse_cm",("Nifty 50","NIFTY 50","NIFTY"),"Nifty 50"),
+        "SENSEX":("bse_cm",("SENSEX","BSE SENSEX"),"SENSEX"),
+        "GOLD MINI":("mcx_fo",("GOLDM","GOLD MINI","GOLDM-FUT"),None),
+        "CRUDE OIL MINI":("mcx_fo",("CRUDEOILM","CRUDE OIL MINI","CRUDEOIL","CRUDE OIL"),None),
+    }
+    out={}; errors=[]
     for label,(segment,names,direct_token) in configs.items():
-        token,trading_symbol=direct_token,direct_token
+        if segment=="mcx_fo":
+            token,trading_symbol=_resolve_mcx_future(client,names)
+        else:
+            token,trading_symbol=direct_token,direct_token
+        if not token:
+            out[label]={"side":"WAIT","score":0,"entry":None,"stop":None,"t1":None,"t2":None,"status":"DATA WAIT","reason":"Kotak Neo MCX contract could not be resolved"}; errors.append(f"{label}: contract not resolved"); continue
         sig=analyze_kotak(client,segment,token,label)
-        # Retry once through the scrip master if the canonical index name has no usable candles.
-        if sig.get("status")=="DATA WAIT" and "Insufficient candles" in sig.get("reason",""):
-            alt_token,alt_symbol=_resolve_token(client,segment,names)
-            if alt_token and alt_token!=token:
-                alt_sig=analyze_kotak(client,segment,alt_token,label)
-                if alt_sig.get("status")!="DATA WAIT" or "Insufficient candles" not in alt_sig.get("reason",""):
-                    token,trading_symbol,sig=alt_token,alt_symbol or alt_token,alt_sig
         sig["instrument_token"]=str(token); sig["trading_symbol"]=trading_symbol; out[label]=sig
         if sig.get("status")=="DATA WAIT":errors.append(f"{label}: {sig.get('reason')}")
     return out,"; ".join(errors) if errors else None
