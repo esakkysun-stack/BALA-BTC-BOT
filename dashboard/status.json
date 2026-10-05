@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791186195,
+  "timestamp": 1791186253,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 86370.01,
+    "price": 86400.32,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -13,25 +13,25 @@
       "NIFTY": {
         "name": "Nifty 50",
         "segment": "nse_cm",
-        "price": 22459.5,
-        "change": 37.55,
-        "percent_change": 0.17,
+        "price": 22466.25,
+        "change": 44.3,
+        "percent_change": 0.2,
         "volume": "0",
         "display_symbol": "Nifty 50-IN",
         "raw": {
           "exchange_token": "Nifty 50",
           "display_symbol": "Nifty 50-IN",
           "exchange": "nse_cm",
-          "lstup_time": "1791186191",
-          "ltp": "22459.5000",
+          "lstup_time": "1791186249",
+          "ltp": "22466.2500",
           "last_traded_quantity": "0",
           "total_buy": "0",
           "total_sell": "0",
           "last_volume": "0",
           "avg_cost": "0",
           "open_int": "0",
-          "change": "37.5500",
-          "per_change": "0.1700",
+          "change": "44.3000",
+          "per_change": "0.2000",
           "low_price_range": "0",
           "high_price_range": "0",
           "year_high": "0",
@@ -103,25 +103,25 @@
       "SENSEX": {
         "name": "SENSEX",
         "segment": "bse_cm",
-        "price": 72013.64,
-        "change": 103.94,
-        "percent_change": 0.14,
+        "price": 72028.67,
+        "change": 118.97,
+        "percent_change": 0.17,
         "volume": "0",
         "display_symbol": "SENSEX-IN",
         "raw": {
           "exchange_token": "SENSEX",
           "display_symbol": "SENSEX-IN",
           "exchange": "bse_cm",
-          "lstup_time": "1791186190",
-          "ltp": "72013.6400",
+          "lstup_time": "1791186249",
+          "ltp": "72028.6700",
           "last_traded_quantity": "0",
           "total_buy": "0",
           "total_sell": "0",
           "last_volume": "0",
           "avg_cost": "0",
           "open_int": "0",
-          "change": "103.9400",
-          "per_change": "0.1400",
+          "change": "118.9700",
+          "per_change": "0.1700",
           "low_price_range": "0",
           "high_price_range": "0",
           "year_high": "0",
@@ -196,20 +196,20 @@
         "price": 148545.0,
         "change": -510.0,
         "percent_change": -0.34,
-        "volume": "1166400",
+        "volume": "1169100",
         "display_symbol": "GOLDM05NOV26FUT",
         "raw": {
           "exchange_token": "571445",
           "display_symbol": "GOLDM05NOV26FUT",
           "exchange": "mcx_fo",
-          "lstup_time": "1791186191",
+          "lstup_time": "1791186249",
           "ltp": "148545.0000",
           "last_traded_quantity": "100",
-          "total_buy": "137800",
-          "total_sell": "124100",
-          "last_volume": "1166400",
-          "avg_cost": "148138.7900",
-          "open_int": "4313100",
+          "total_buy": "137700",
+          "total_sell": "123700",
+          "last_volume": "1169100",
+          "avg_cost": "148139.7300",
+          "open_int": "4312100",
           "change": "-510.0000",
           "per_change": "-0.3400",
           "low_price_range": "144584.0000",
@@ -225,46 +225,46 @@
           "depth": {
             "buy": [
               {
-                "price": "148545.0000",
-                "quantity": "100",
-                "orders": "1"
-              },
-              {
-                "price": "148539.0000",
+                "price": "148534.0000",
                 "quantity": "200",
-                "orders": "2"
-              },
-              {
-                "price": "148538.0000",
-                "quantity": "100",
-                "orders": "1"
-              },
-              {
-                "price": "148535.0000",
-                "quantity": "100",
                 "orders": "1"
               },
               {
                 "price": "148532.0000",
                 "quantity": "100",
                 "orders": "1"
+              },
+              {
+                "price": "148531.0000",
+                "quantity": "100",
+                "orders": "1"
+              },
+              {
+                "price": "148530.0000",
+                "quantity": "200",
+                "orders": "2"
+              },
+              {
+                "price": "148520.0000",
+                "quantity": "100",
+                "orders": "1"
               }
             ],
             "sell": [
               {
-                "price": "148549.0000",
-                "quantity": "600",
+                "price": "148545.0000",
+                "quantity": "200",
                 "orders": "2"
               },
               {
                 "price": "148550.0000",
-                "quantity": "1900",
+                "quantity": "1500",
                 "orders": "9"
               },
               {
                 "price": "148551.0000",
-                "quantity": "700",
-                "orders": "5"
+                "quantity": "600",
+                "orders": "4"
               },
               {
                 "price": "148555.0000",
@@ -272,9 +272,9 @@
                 "orders": "1"
               },
               {
-                "price": "148559.0000",
-                "quantity": "200",
-                "orders": "2"
+                "price": "148560.0000",
+                "quantity": "400",
+                "orders": "4"
               }
             ]
           }
@@ -290,25 +290,25 @@
       "CRUDE OIL": {
         "name": "569900",
         "segment": "mcx_fo",
-        "price": 8662.0,
-        "change": -254.0,
-        "percent_change": -2.85,
-        "volume": "1231400",
+        "price": 8653.0,
+        "change": -263.0,
+        "percent_change": -2.95,
+        "volume": "1233800",
         "display_symbol": "CRUDEOIL19OCT26FUT",
         "raw": {
           "exchange_token": "569900",
           "display_symbol": "CRUDEOIL19OCT26FUT",
           "exchange": "mcx_fo",
-          "lstup_time": "1791186191",
-          "ltp": "8662.0000",
-          "last_traded_quantity": "100",
-          "total_buy": "95900",
-          "total_sell": "82000",
-          "last_volume": "1231400",
-          "avg_cost": "8677.9800",
-          "open_int": "1046800",
-          "change": "-254.0000",
-          "per_change": "-2.8500",
+          "lstup_time": "1791186250",
+          "ltp": "8653.0000",
+          "last_traded_quantity": "300",
+          "total_buy": "96600",
+          "total_sell": "82200",
+          "last_volume": "1233800",
+          "avg_cost": "8677.9400",
+          "open_int": "1045700",
+          "change": "-263.0000",
+          "per_change": "-2.9500",
           "low_price_range": "8560.0000",
           "high_price_range": "9272.0000",
           "year_high": "0",
@@ -322,56 +322,56 @@
           "depth": {
             "buy": [
               {
-                "price": "8660.0000",
-                "quantity": "600",
-                "orders": "3"
-              },
-              {
-                "price": "8659.0000",
-                "quantity": "800",
-                "orders": "4"
-              },
-              {
                 "price": "8658.0000",
-                "quantity": "900",
+                "quantity": "1200",
                 "orders": "5"
               },
               {
                 "price": "8657.0000",
-                "quantity": "800",
+                "quantity": "900",
                 "orders": "4"
               },
               {
                 "price": "8656.0000",
-                "quantity": "1200",
-                "orders": "7"
+                "quantity": "900",
+                "orders": "4"
+              },
+              {
+                "price": "8655.0000",
+                "quantity": "900",
+                "orders": "4"
+              },
+              {
+                "price": "8654.0000",
+                "quantity": "1000",
+                "orders": "5"
               }
             ],
             "sell": [
               {
+                "price": "8661.0000",
+                "quantity": "1100",
+                "orders": "7"
+              },
+              {
+                "price": "8662.0000",
+                "quantity": "1300",
+                "orders": "6"
+              },
+              {
                 "price": "8663.0000",
-                "quantity": "900",
+                "quantity": "400",
                 "orders": "3"
               },
               {
                 "price": "8664.0000",
-                "quantity": "1000",
-                "orders": "4"
+                "quantity": "300",
+                "orders": "2"
               },
               {
                 "price": "8665.0000",
-                "quantity": "800",
-                "orders": "4"
-              },
-              {
-                "price": "8666.0000",
-                "quantity": "700",
-                "orders": "5"
-              },
-              {
-                "price": "8667.0000",
                 "quantity": "300",
-                "orders": "2"
+                "orders": "3"
               }
             ]
           }
@@ -396,7 +396,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 3,
+    "score": 2,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -423,7 +423,7 @@
       "t1": null,
       "t2": null,
       "status": "DATA WAIT",
-      "reason": "Candle data unavailable: 5min: Rate limit exceeded"
+      "reason": "Candle data unavailable: 15min: Rate limit exceeded"
     },
     "GOLD MINI": {
       "side": "WAIT",
@@ -447,7 +447,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 3,
+      "score": 2,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -510,9 +510,9 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791186195
+    "updated_at": 1791186253
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
-  "kotak_bala_error": "NIFTY: Candle data unavailable: 5min: Rate limit exceeded; SENSEX: Candle data unavailable: 5min: Rate limit exceeded"
+  "kotak_bala_error": "NIFTY: Candle data unavailable: 5min: Rate limit exceeded; SENSEX: Candle data unavailable: 15min: Rate limit exceeded"
 }
