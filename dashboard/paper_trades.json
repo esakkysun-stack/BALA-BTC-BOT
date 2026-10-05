@@ -3,7 +3,21 @@
   "initial_balance": 10000.0,
   "balance": 10000.0,
   "realized_pnl": null,
-  "open_trade": null,
+  "open_trade": {
+    "trade_id": "02",
+    "symbol": "SENSEX",
+    "mode": "Aggressive BALA paper trade",
+    "side": "SHORT",
+    "entry": 72395.0,
+    "stop": 72445.0,
+    "t1": 72360.0,
+    "t2": 72320.0,
+    "current_price": 72348.26,
+    "unrealized_points": 46.74,
+    "status": "OPEN",
+    "reason": "1M bearish displacement from the 72600 area; 72400 support breakdown trigger; paper entry recorded at the planned 72395 trigger. Index-direction simulation only; not an actual option fill.",
+    "paper_only": true
+  },
   "trades": [
     {
       "trade_id": "01",
@@ -19,6 +33,22 @@
       "status": "T2 HIT",
       "reason": "15m bullish structure; 5m pullback stabilized near 85220; 1m reclaimed 85230; strong bid liquidity was visible at the entry zone.",
       "points_to_exit": 36.3,
+      "paper_only": true
+    },
+    {
+      "trade_id": "02",
+      "symbol": "SENSEX",
+      "mode": "Aggressive BALA paper trade",
+      "side": "SHORT",
+      "entry": 72395.0,
+      "stop": 72445.0,
+      "t1": 72360.0,
+      "t2": 72320.0,
+      "exit_price": null,
+      "exit_reason": null,
+      "status": "OPEN",
+      "reason": "1M bearish displacement from the 72600 area; 72400 support breakdown trigger; paper entry recorded at the planned 72395 trigger. Index-direction simulation only; not an actual option fill.",
+      "points_to_current": 46.74,
       "paper_only": true
     }
   ],
