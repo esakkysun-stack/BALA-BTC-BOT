@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791168625,
+  "timestamp": 1791169524,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 86568.0,
+    "price": 86481.22,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -14,8 +14,8 @@
         "name": "Nifty 50",
         "segment": "nse_cm",
         "price": 22421.95,
-        "change": -198.5,
-        "percent_change": -0.8775,
+        "change": 0.0,
+        "percent_change": 0.0,
         "volume": "0",
         "display_symbol": "Nifty 50-IN",
         "raw": {
@@ -30,8 +30,8 @@
           "last_volume": "0",
           "avg_cost": "0",
           "open_int": "0",
-          "change": "-198.5",
-          "per_change": "-0.8775",
+          "change": "0",
+          "per_change": "0",
           "low_price_range": "0",
           "high_price_range": "0",
           "year_high": "0",
@@ -104,8 +104,8 @@
         "name": "SENSEX",
         "segment": "bse_cm",
         "price": 71909.7,
-        "change": -570.59,
-        "percent_change": -0.7872,
+        "change": 0.0,
+        "percent_change": 0.0,
         "volume": "0",
         "display_symbol": "SENSEX-IN",
         "raw": {
@@ -120,8 +120,8 @@
           "last_volume": "0",
           "avg_cost": "0",
           "open_int": "0",
-          "change": "-570.59",
-          "per_change": "-0.7872",
+          "change": "0",
+          "per_change": "0",
           "low_price_range": "0",
           "high_price_range": "0",
           "year_high": "0",
@@ -194,8 +194,8 @@
         "name": "571445",
         "segment": "mcx_fo",
         "price": 149055.0,
-        "change": 1147.0,
-        "percent_change": 0.7755,
+        "change": 0.0,
+        "percent_change": 0.0,
         "volume": "0",
         "display_symbol": "GOLDM05NOV26FUT",
         "raw": {
@@ -210,8 +210,8 @@
           "last_volume": "0",
           "avg_cost": "0",
           "open_int": "42632",
-          "change": "1147",
-          "per_change": "0.7755",
+          "change": "0",
+          "per_change": "0",
           "low_price_range": "144583.34",
           "high_price_range": "153526.66",
           "year_high": "0",
@@ -291,8 +291,8 @@
         "name": "569900",
         "segment": "mcx_fo",
         "price": 8916.0,
-        "change": 182.0,
-        "percent_change": 2.0838,
+        "change": 0.0,
+        "percent_change": 0.0,
         "volume": "0",
         "display_symbol": "CRUDEOIL19OCT26FUT",
         "raw": {
@@ -307,8 +307,8 @@
           "last_volume": "0",
           "avg_cost": "0",
           "open_int": "11210",
-          "change": "182",
-          "per_change": "2.0838",
+          "change": "0",
+          "per_change": "0",
           "low_price_range": "8559.36",
           "high_price_range": "9272.64",
           "year_high": "0",
@@ -396,7 +396,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 2,
+    "score": 3,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -447,7 +447,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 2,
+      "score": 3,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -480,7 +480,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791168625
+    "updated_at": 1791169524
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
