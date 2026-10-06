@@ -1,6 +1,7 @@
 """BALA candle analysis for Kotak Neo NSE/BSE/MCX instruments."""
 from __future__ import annotations
 from datetime import datetime, timedelta, timezone
+import time
 from neo_api_client import NeoAPI
 
 IST=timezone(timedelta(hours=5,minutes=30))
@@ -48,15 +49,44 @@ def _resolve_mcx_future(client,names):
     return token,row.get("pTrdSymbol") or row.get("trading_symbol")
 
 def _candles(client,segment,token,interval,days):
-    now=datetime.now(IST); start=(now-timedelta(days=days)).strftime("%Y-%m-%d"); end=now.strftime("%Y-%m-%d")
-    response=client.historical_data(neosymbol=f"{segment}|{token}",interval=interval,from_date=start,to_date=end)
-    if not isinstance(response,dict):raise RuntimeError(f"{interval}: unexpected historical-data response")
-    rows=response.get("data",{}).get("candles",[])
-    if not rows:
-        fault=response.get("fault") or response.get("error") or response.get("message")
-        if fault:raise RuntimeError(f"{interval}: {fault}")
-        return []
-    return [{"open":_float(r[1]),"high":_float(r[2]),"low":_float(r[3]),"close":_float(r[4]),"volume":_float(r[5])} for r in rows if len(r)>=6]
+    """Fetch a small recent window with bounded retry/backoff for Kotak 429s."""
+    now=datetime.now(IST)
+    start=(now-timedelta(days=days)).strftime("%Y-%m-%d")
+    end=now.strftime("%Y-%m-%d")
+    last_error=None
+    for attempt in range(4):
+        try:
+            response=client.historical_data(
+                neosymbol=f"{segment}|{token}",
+                interval=interval,
+                from_date=start,
+                to_date=end,
+            )
+            if not isinstance(response,dict):
+                raise RuntimeError(f"{interval}: unexpected historical-data response")
+            rows=response.get("data",{}).get("candles",[])
+            if not rows:
+                fault=response.get("fault") or response.get("error") or response.get("message")
+                if fault:
+                    text=str(fault)
+                    if "429" in text or "rate limit" in text.lower() or "too many requests" in text.lower():
+                        last_error=RuntimeError(f"{interval}: {text}")
+                        time.sleep(1.25*(2**attempt))
+                        continue
+                    raise RuntimeError(f"{interval}: {text}")
+                return []
+            time.sleep(0.30)
+            return [{"open":_float(r[1]),"high":_float(r[2]),"low":_float(r[3]),
+                     "close":_float(r[4]),"volume":_float(r[5])}
+                    for r in rows if len(r)>=6]
+        except Exception as exc:
+            last_error=exc
+            text=str(exc)
+            if "429" in text or "rate limit" in text.lower() or "too many requests" in text.lower():
+                time.sleep(1.25*(2**attempt))
+                continue
+            raise
+    raise RuntimeError(f"{interval}: rate limit persisted after retries ({last_error})")
 
 def _ema(vals,n):
     if not vals:return 0.0
@@ -90,7 +120,7 @@ def _fvg(c):
 
 def analyze_kotak(client,segment,token,name):
     try:
-        c15=_candles(client,segment,token,"15min",30); c5=_candles(client,segment,token,"5min",20); c1=_candles(client,segment,token,"1min",7)
+        c15=_candles(client,segment,token,"15min",10); c5=_candles(client,segment,token,"5min",5); c1=_candles(client,segment,token,"1min",2)
         counts=f"15M={len(c15)}, 5M={len(c5)}, 1M={len(c1)}"
         if len(c15)<25 or len(c5)<25 or len(c1)<30:return {"side":"WAIT","score":0,"entry":None,"stop":None,"t1":None,"t2":None,"status":"DATA WAIT","reason":f"Insufficient candles ({counts})"}
         p=c1[-1]["close"]; a=_atr(c1); e9=_ema([x["close"] for x in c1[-50:]],9); e21=_ema([x["close"] for x in c1[-70:]],21)
