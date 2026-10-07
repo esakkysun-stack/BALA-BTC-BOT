@@ -39,11 +39,14 @@ def _resolve_mcx_future(client,names):
                     try:return datetime.strptime(value.strip(),fmt).replace(tzinfo=timezone.utc).timestamp()
                     except ValueError:pass
         value=_float(row.get("lExpiryDate"),0)
-        return value/1000 if value>10_000_000_000 else value
+        if value > 0:
+            return value/1000 if value>10_000_000_000 else value
+        return float("inf")
     now=datetime.now(timezone.utc).timestamp(); valid=[]
     for row in candidates:
         token=row.get("pSymbol") or row.get("instrument_token"); ex=expiry(row)
-        if token and ex>=now:valid.append((ex,str(token),row))
+        # Some valid Kotak futures rows omit a parseable expiry.
+        if token and (ex == float("inf") or ex>=now):valid.append((ex,str(token),row))
     if not valid:return None,None
     valid.sort(key=lambda x:x[0]); _,token,row=valid[0]
     return token,row.get("pTrdSymbol") or row.get("trading_symbol")
@@ -145,9 +148,9 @@ def analyze_kotak(client,segment,token,name):
         if imbalance==1:bull+=1;wb.append("FVG")
         if imbalance==-1:bear+=1;ws.append("FVG")
         score=min(10,max(bull,bear))
-        if bull>=8 and bull>bear:
+        if bull>=7 and bull>bear:
             stop=min(l5,p-a*1.2);risk=max(p-stop,a*.8);return {"side":"BUY","score":score,"entry":p,"stop":stop,"t1":p+risk*1.5,"t2":p+risk*2.5,"status":"OPEN","reason":" + ".join(wb)}
-        if bear>=8 and bear>bull:
+        if bear>=7 and bear>bull:
             stop=max(h5,p+a*1.2);risk=max(stop-p,a*.8);return {"side":"SELL","score":score,"entry":p,"stop":stop,"t1":p-risk*1.5,"t2":p-risk*2.5,"status":"OPEN","reason":" + ".join(ws)}
         return {"side":"WAIT","score":score,"entry":None,"stop":None,"t1":None,"t2":None,"status":"NO TRADE","reason":"BALA confirmation below 7/10"}
     except Exception as exc:return {"side":"WAIT","score":0,"entry":None,"stop":None,"t1":None,"t2":None,"status":"DATA WAIT","reason":f"Candle data unavailable: {exc}"}
@@ -166,7 +169,9 @@ def get_kotak_bala_signals(consumer_key):
         if segment=="mcx_fo":
             token,trading_symbol=_resolve_mcx_future(client,names)
         else:
-            token,trading_symbol=direct_token,direct_token
+            # Kotak historical_data requires the instrument token, not the
+            # human-readable index name. Resolve it from the scrip master.
+            token,trading_symbol=_resolve_token(client,segment,names)
         if not token:
             out[label]={"side":"WAIT","score":0,"entry":None,"stop":None,"t1":None,"t2":None,"status":"DATA WAIT","reason":"Kotak Neo MCX contract could not be resolved"}; errors.append(f"{label}: contract not resolved"); continue
         sig=analyze_kotak(client,segment,token,label)
