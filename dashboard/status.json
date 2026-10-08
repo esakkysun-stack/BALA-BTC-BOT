@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791493887,
+  "timestamp": 1791495072,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 81743.9,
+    "price": 81686.01,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -410,12 +410,12 @@
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-08T21:10:20.897Z",
+    "timestamp": "2026-10-08T21:30:08.842Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-08T21:10:20.897Z",
+      "as_of": "2026-10-08T21:30:08.842Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791493887
+    "updated_at": 1791495072
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
