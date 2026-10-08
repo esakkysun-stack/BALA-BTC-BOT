@@ -1,0 +1,23 @@
+{
+  "version": "BALA-V2",
+  "execution_mode": "PAPER_ONLY",
+  "min_score": 7,
+  "min_rr": 1.5,
+  "max_daily_loss_r": 2.0,
+  "max_consecutive_losses": 2,
+  "max_open_positions": 1,
+  "required_timeframes": ["15m", "5m", "1m"],
+  "components": [
+    "15m trend",
+    "15m ORB",
+    "liquidity sweep",
+    "BOS/CHoCH",
+    "5m displacement",
+    "FVG/OB retest",
+    "VWAP",
+    "FRVP",
+    "volume/RVOL",
+    "option-premium reaction zone"
+  ],
+  "live_orders": false
+}
