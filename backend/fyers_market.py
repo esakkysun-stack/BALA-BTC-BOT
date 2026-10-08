@@ -1,9 +1,12 @@
-"""FYERS v3 market-data adapter.
+"""FYERS v3 REST market-data adapter.
 
+Uses the FYERS Quotes REST API directly so the BALA runner does not
+mix incompatible websocket-client dependency requirements with Kotak Neo.
 Requires FYERS_APP_ID and FYERS_ACCESS_TOKEN in the runtime environment.
-The access token is intentionally not stored in the repository.
 """
+
 import os
+import requests
 
 
 def get_fyers_snapshot(symbol=None):
@@ -21,39 +24,41 @@ def get_fyers_snapshot(symbol=None):
         }
 
     try:
-        from fyers_apiv3 import fyersModel
-
-        fyers = fyersModel.FyersModel(
-            client_id=app_id,
-            token=token,
-            is_async=False,
-            log_path="",
+        url = "https://api-t1.fyers.in/data/quotes"
+        response = requests.get(
+            url,
+            params={"symbols": symbol},
+            headers={"Authorization": f"{app_id}:{token}"},
+            timeout=10,
         )
-        response = fyers.quotes({"symbols": symbol})
-        if response.get("s") != "ok":
+        response.raise_for_status()
+        payload = response.json()
+
+        if payload.get("s") != "ok":
             return {
                 "connected": False,
                 "symbol": symbol,
                 "price": None,
-                "source": "FYERS",
-                "error": str(response),
+                "source": "FYERS REST",
+                "error": str(payload),
             }
 
-        d = response.get("d") or []
-        v = d[0].get("v", {}) if d else {}
-        price = v.get("lp")
+        data = payload.get("d") or []
+        value = data[0].get("v", {}) if data else {}
+        price = value.get("lp")
+
         return {
-            "connected": True,
+            "connected": price is not None,
             "symbol": symbol,
             "price": price,
-            "source": "FYERS v3",
-            "response": response,
+            "source": "FYERS REST Quotes API",
+            "response": payload,
         }
     except Exception as exc:
         return {
             "connected": False,
             "symbol": symbol,
             "price": None,
-            "source": "FYERS",
+            "source": "FYERS REST",
             "error": str(exc),
         }
