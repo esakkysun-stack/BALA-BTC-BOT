@@ -48,6 +48,7 @@ jobs:
           KOTAK_ACCESS_TOKEN: ${{ secrets.KOTAK_ACCESS_TOKEN }}
           KOTAK_GOLD_MINI_TOKEN: ${{ secrets.KOTAK_GOLD_MINI_TOKEN }}
           KOTAK_CRUDE_OIL_TOKEN: ${{ secrets.KOTAK_CRUDE_OIL_TOKEN }}
+          TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
         run: |
           set -e
           for cycle in 1 2 3; do
