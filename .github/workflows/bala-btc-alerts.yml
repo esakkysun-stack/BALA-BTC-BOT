@@ -2,6 +2,9 @@ name: BALA BTC Alerts
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'backend/requirements.txt'
   schedule:
     - cron: '*/5 * * * *'
 
