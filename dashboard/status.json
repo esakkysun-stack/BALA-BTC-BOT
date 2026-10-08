@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791482423,
+  "timestamp": 1791482485,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 80734.76,
+    "price": 80699.17,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -524,7 +524,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791482423
+    "updated_at": 1791482485
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
