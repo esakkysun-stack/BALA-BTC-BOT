@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791486644,
+  "timestamp": 1791487837,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 81546.0,
+    "price": 81723.39,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -403,19 +403,19 @@
   "xauusd": {
     "connected": true,
     "symbol": "XAUUSD",
-    "price": 4129.899902,
+    "price": 4133.200195,
     "open": null,
     "high": null,
     "low": null,
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-08T19:10:14.183Z",
+    "timestamp": "2026-10-08T19:29:58.432Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-08T19:10:14.183Z",
+      "as_of": "2026-10-08T19:29:58.432Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -423,7 +423,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 4,
+    "score": 3,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -474,7 +474,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 4,
+      "score": 3,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791486644
+    "updated_at": 1791487837
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
