@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'backend/requirements.txt'
+      - 'backend/**'
+      - 'dashboard/paper_trades.json'
+      - 'dashboard/status.json'
   schedule:
     - cron: '*/5 * * * *'
 
