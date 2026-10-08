@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791485608,
+  "timestamp": 1791486518,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 81466.01,
+    "price": 81468.01,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -401,12 +401,25 @@
     "instruments": {}
   },
   "xauusd": {
-    "connected": false,
+    "connected": true,
     "symbol": "XAUUSD",
-    "price": null,
-    "source": "XAUUSD",
-    "error": "404 Client Error: Not Found for url: https://query1.finance.yahoo.com/v8/finance/chart/XAUUSD=X?range=1d&interval=1m&includePrePost=true",
-    "fallback_error": null
+    "price": 4129.799805,
+    "open": null,
+    "high": null,
+    "low": null,
+    "previous_close": null,
+    "change": null,
+    "percent_change": null,
+    "timestamp": "2026-10-08T19:08:03.537Z",
+    "source": "XAUS XAU/USD spot",
+    "source_type": "spot",
+    "data_state": {
+      "status": "fresh",
+      "as_of": "2026-10-08T19:08:03.537Z",
+      "source": "upstream",
+      "age_seconds": 0
+    },
+    "stale": false
   },
   "signal": {
     "side": "WAIT",
@@ -474,7 +487,7 @@
     "mode": "PAPER_ONLY",
     "initial_balance": 10000.0,
     "balance": 10000.0,
-    "realized_pnl": null,
+    "realized_pnl": 0.0,
     "open_trade": {
       "trade_id": "02",
       "symbol": "SENSEX",
@@ -524,9 +537,18 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791485608
+    "updated_at": 1791486518
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
+  "live_gate": {
+    "enabled": false,
+    "execution": "PAPER_ONLY",
+    "requires": [
+      "LIVE_TRADING_ENABLED=true",
+      "LIVE_CONFIRMATION=I_UNDERSTAND_LIVE_RISK"
+    ],
+    "note": "Do not enable live execution until signal/data/order tests pass."
+  },
   "kotak_bala_error": "NIFTY: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; SENSEX: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; GOLD MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}; CRUDE OIL MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}"
 }

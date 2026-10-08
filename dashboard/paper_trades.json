@@ -2,7 +2,7 @@
   "mode": "PAPER_ONLY",
   "initial_balance": 10000.0,
   "balance": 10000.0,
-  "realized_pnl": null,
+  "realized_pnl": 0.0,
   "open_trade": {
     "trade_id": "02",
     "symbol": "SENSEX",
@@ -52,5 +52,5 @@
       "paper_only": true
     }
   ],
-  "updated_at": 1791485608
+  "updated_at": 1791486518
 }
