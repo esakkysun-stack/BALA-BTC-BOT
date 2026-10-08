@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791462868,
+  "timestamp": 1791462931,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82386.01,
+    "price": 82350.0,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -193,25 +193,25 @@
       "GOLD MINI": {
         "name": "571445",
         "segment": "mcx_fo",
-        "price": 148067.0,
-        "change": 170.0,
-        "percent_change": 0.11,
-        "volume": "1807000",
+        "price": 147986.0,
+        "change": 89.0,
+        "percent_change": 0.06,
+        "volume": "1811400",
         "display_symbol": "GOLDM05NOV26FUT",
         "raw": {
           "exchange_token": "571445",
           "display_symbol": "GOLDM05NOV26FUT",
           "exchange": "mcx_fo",
-          "lstup_time": "1791462861",
-          "ltp": "148067.0000",
+          "lstup_time": "1791462923",
+          "ltp": "147986.0000",
           "last_traded_quantity": "100",
-          "total_buy": "183500",
-          "total_sell": "175400",
-          "last_volume": "1807000",
-          "avg_cost": "148126.3000",
-          "open_int": "4494500",
-          "change": "170.0000",
-          "per_change": "0.1100",
+          "total_buy": "180500",
+          "total_sell": "177400",
+          "last_volume": "1811400",
+          "avg_cost": "148126.0400",
+          "open_int": "4493800",
+          "change": "89.0000",
+          "per_change": "0.0600",
           "low_price_range": "143461.0000",
           "high_price_range": "152333.0000",
           "year_high": "0",
@@ -225,55 +225,55 @@
           "depth": {
             "buy": [
               {
-                "price": "148050.0000",
+                "price": "147986.0000",
                 "quantity": "100",
                 "orders": "1"
               },
               {
-                "price": "148047.0000",
+                "price": "147982.0000",
                 "quantity": "100",
                 "orders": "1"
               },
               {
-                "price": "148037.0000",
-                "quantity": "300",
-                "orders": "1"
-              },
-              {
-                "price": "148036.0000",
+                "price": "147977.0000",
                 "quantity": "100",
                 "orders": "1"
               },
               {
-                "price": "148035.0000",
+                "price": "147976.0000",
+                "quantity": "100",
+                "orders": "1"
+              },
+              {
+                "price": "147973.0000",
                 "quantity": "100",
                 "orders": "1"
               }
             ],
             "sell": [
               {
-                "price": "148073.0000",
+                "price": "148005.0000",
                 "quantity": "100",
                 "orders": "1"
               },
               {
-                "price": "148084.0000",
-                "quantity": "300",
+                "price": "148006.0000",
+                "quantity": "100",
                 "orders": "1"
               },
               {
-                "price": "148086.0000",
-                "quantity": "200",
+                "price": "148008.0000",
+                "quantity": "700",
                 "orders": "2"
               },
               {
-                "price": "148087.0000",
-                "quantity": "200",
+                "price": "148009.0000",
+                "quantity": "100",
                 "orders": "1"
               },
               {
-                "price": "148089.0000",
-                "quantity": "700",
+                "price": "148011.0000",
+                "quantity": "300",
                 "orders": "2"
               }
             ]
@@ -290,25 +290,25 @@
       "CRUDE OIL": {
         "name": "569901",
         "segment": "mcx_fo",
-        "price": 8967.0,
-        "change": 413.0,
-        "percent_change": 4.83,
-        "volume": "845550",
+        "price": 8969.0,
+        "change": 415.0,
+        "percent_change": 4.85,
+        "volume": "845780",
         "display_symbol": "CRUDEOILM19OCT26FUT",
         "raw": {
           "exchange_token": "569901",
           "display_symbol": "CRUDEOILM19OCT26FUT",
           "exchange": "mcx_fo",
-          "lstup_time": "1791462862",
-          "ltp": "8967.0000",
-          "last_traded_quantity": "10",
-          "total_buy": "44950",
-          "total_sell": "18970",
-          "last_volume": "845550",
-          "avg_cost": "8864.6600",
-          "open_int": "343100",
-          "change": "413.0000",
-          "per_change": "4.8300",
+          "lstup_time": "1791462924",
+          "ltp": "8969.0000",
+          "last_traded_quantity": "20",
+          "total_buy": "45440",
+          "total_sell": "18350",
+          "last_volume": "845780",
+          "avg_cost": "8864.6900",
+          "open_int": "343120",
+          "change": "415.0000",
+          "per_change": "4.8500",
           "low_price_range": "8041.0000",
           "high_price_range": "9067.0000",
           "year_high": "0",
@@ -322,56 +322,56 @@
           "depth": {
             "buy": [
               {
-                "price": "8965.0000",
-                "quantity": "20",
-                "orders": "2"
-              },
-              {
-                "price": "8964.0000",
-                "quantity": "80",
-                "orders": "3"
-              },
-              {
-                "price": "8963.0000",
+                "price": "8969.0000",
                 "quantity": "80",
                 "orders": "4"
               },
               {
-                "price": "8962.0000",
-                "quantity": "280",
+                "price": "8968.0000",
+                "quantity": "130",
                 "orders": "7"
               },
               {
-                "price": "8961.0000",
-                "quantity": "150",
-                "orders": "8"
+                "price": "8967.0000",
+                "quantity": "290",
+                "orders": "9"
+              },
+              {
+                "price": "8966.0000",
+                "quantity": "160",
+                "orders": "7"
+              },
+              {
+                "price": "8965.0000",
+                "quantity": "280",
+                "orders": "14"
               }
             ],
             "sell": [
               {
-                "price": "8967.0000",
-                "quantity": "80",
+                "price": "8970.0000",
+                "quantity": "60",
                 "orders": "3"
               },
               {
-                "price": "8968.0000",
-                "quantity": "180",
-                "orders": "6"
-              },
-              {
-                "price": "8969.0000",
-                "quantity": "110",
-                "orders": "7"
-              },
-              {
-                "price": "8970.0000",
-                "quantity": "230",
-                "orders": "10"
-              },
-              {
                 "price": "8971.0000",
-                "quantity": "180",
+                "quantity": "10",
+                "orders": "1"
+              },
+              {
+                "price": "8972.0000",
+                "quantity": "130",
                 "orders": "9"
+              },
+              {
+                "price": "8973.0000",
+                "quantity": "90",
+                "orders": "5"
+              },
+              {
+                "price": "8974.0000",
+                "quantity": "340",
+                "orders": "12"
               }
             ]
           }
@@ -410,7 +410,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 3,
+    "score": 2,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -461,7 +461,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 3,
+      "score": 2,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -524,7 +524,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791462868
+    "updated_at": 1791462931
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
