@@ -12,6 +12,7 @@ from fyers_market import get_fyers_snapshot
 from mcx_market import get_mcx_snapshot
 from xauusd_market import get_xauusd_snapshot
 from paper_trader import load as load_paper, process as process_paper
+from live_gate import status as live_status
 
 SYMBOL=os.getenv("BALA_SYMBOL","BTCUSDT")
 FYERS_SYMBOL=os.getenv("FYERS_SYMBOL","NSE:NIFTY50-INDEX")
@@ -45,7 +46,7 @@ def write_status(s,kotak,fyers,mcx,xauusd,paper,indian_signals=None,btc_error=No
     btc={"side":s.side if eligible else "WAIT","score":btc_score,"entry":s.entry if eligible else None,"stop":s.stop if eligible else None,"t1":s.t1 if eligible else None,"t2":s.t2 if eligible else None,"status":"OPEN" if eligible else "NO TRADE","reason":s.reason if eligible else ("BTC backend unavailable" if s is None else "BALA score below 7/10 entry threshold")}
     source=indian_signals or {}
     signals={"NIFTY":normalize_signal(source.get("NIFTY")),"SENSEX":normalize_signal(source.get("SENSEX")),"GOLD MINI":normalize_signal(source.get("GOLD MINI")),"CRUDE OIL MINI":normalize_signal(source.get("CRUDE OIL MINI")),"BTC / USDT":btc}
-    payload={"timestamp":int(time.time()),"market":{"symbol":SYMBOL,"price":btc_price,"source":"Binance public market-data feed","error":btc_error},"kotak":kotak,"fyers":fyers,"mcx":mcx,"xauusd":xauusd,"signal":btc,"signals":signals,"paper":paper,"execution":"PAPER_ONLY","live_execution":False,"kotak_bala_error":kotak_error}
+    payload={"timestamp":int(time.time()),"market":{"symbol":SYMBOL,"price":btc_price,"source":"Binance public market-data feed","error":btc_error},"kotak":kotak,"fyers":fyers,"mcx":mcx,"xauusd":xauusd,"signal":btc,"signals":signals,"paper":paper,"execution":"PAPER_ONLY","live_execution":False,"live_gate":live_status(),"kotak_bala_error":kotak_error}
     os.makedirs(os.path.dirname(STATUS_PATH),exist_ok=True)
     with open(STATUS_PATH,"w",encoding="utf-8") as f:json.dump(payload,f,indent=2)
     return payload
@@ -61,6 +62,7 @@ def main():
     btc_signal={"side":s.side if btc_eligible else "WAIT","score":btc_score,"entry":s.entry if btc_eligible else None,"stop":s.stop if btc_eligible else None,"t1":s.t1 if btc_eligible else None,"t2":s.t2 if btc_eligible else None,"reason":s.reason if btc_eligible else "BALA score below 7/10 or BTC backend unavailable"}
     if price is not None:paper=process_paper(paper,btc_signal,price)
     payload=write_status(s,kotak,fyers,mcx,xauusd,paper,indian_signals,btc_error,price,kotak_error);print(json.dumps(payload,indent=2))
+    print(f"Live execution gate: {payload.get('live_gate')}")
     if btc_eligible:
         msg=(f"BALA BTC PAPER ALERT\n{SYMBOL} · {s.side}\nScore: {btc_score}/10\nEntry: {s.entry:.2f}\nSL: {s.stop:.2f}\nT1: {s.t1:.2f}\nT2: {s.t2:.2f}\nReason: {s.reason}\nExecution: PAPER ONLY")
         print("Telegram alert:","SENT" if telegram(msg) else "NOT CONFIGURED")
