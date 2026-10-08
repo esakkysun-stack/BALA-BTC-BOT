@@ -19,9 +19,17 @@ def _default() -> dict[str, Any]:
 def load() -> dict[str, Any]:
     try:
         with open(STATE_PATH, "r", encoding="utf-8") as f:
-            return json.load(f)
+            state = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return _default()
+    # Repair older ledgers that were created before realized_pnl was initialized.
+    state.setdefault("mode", "PAPER_ONLY")
+    state.setdefault("initial_balance", INITIAL_BALANCE)
+    state.setdefault("balance", INITIAL_BALANCE)
+    state["realized_pnl"] = float(state.get("realized_pnl") or 0.0)
+    state.setdefault("trades", [])
+    state.setdefault("open_trade", None)
+    return state
 
 
 def save(state: dict[str, Any]) -> None:
@@ -64,7 +72,7 @@ def process(state: dict[str, Any], signal: dict[str, Any], price: float) -> dict
             if (t["side"] == "BUY" and price >= t["t2"]) or (t["side"] == "SELL" and price <= t["t2"]):
                 _close(state, t["t2"], "T2")
 
-    if state.get("open_trade") is None and signal.get("side") in ("BUY", "SELL") and signal.get("score", 0) >= 6:
+    if state.get("open_trade") is None and signal.get("side") in ("BUY", "SELL") and signal.get("score", 0) >= 7:
         entry = float(signal["entry"]); stop = float(signal["stop"])
         risk_per_unit = abs(entry - stop)
         if risk_per_unit > 0:
