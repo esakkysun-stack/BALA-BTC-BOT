@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791489998,
+  "timestamp": 1791490059,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 81852.0,
+    "price": 81856.01,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -423,7 +423,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 3,
+    "score": 4,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -474,7 +474,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 3,
+      "score": 4,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791489998
+    "updated_at": 1791490059
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
