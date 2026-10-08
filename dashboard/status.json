@@ -1,5 +1,5 @@
 {
-  "timestamp": 1791485545,
+  "timestamp": 1791485608,
   "market": {
     "symbol": "BTCUSDT",
     "price": 81466.01,
@@ -524,7 +524,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791485545
+    "updated_at": 1791485608
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
