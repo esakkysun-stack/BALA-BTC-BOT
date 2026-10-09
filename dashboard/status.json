@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791514893,
+  "timestamp": 1791516128,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82171.28,
+    "price": 82250.03,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -194,8 +194,8 @@
         "name": "571445",
         "segment": "mcx_fo",
         "price": 148332.0,
-        "change": 435.0,
-        "percent_change": 0.2941,
+        "change": 0.0,
+        "percent_change": 0.0,
         "volume": "0",
         "display_symbol": "GOLDM05NOV26FUT",
         "raw": {
@@ -210,8 +210,8 @@
           "last_volume": "0",
           "avg_cost": "0",
           "open_int": "44224",
-          "change": "435",
-          "per_change": "0.2941",
+          "change": "0",
+          "per_change": "0",
           "low_price_range": "143882.05",
           "high_price_range": "152781.95",
           "year_high": "0",
@@ -291,8 +291,8 @@
         "name": "569901",
         "segment": "mcx_fo",
         "price": 8863.0,
-        "change": 309.0,
-        "percent_change": 3.6123,
+        "change": 0.0,
+        "percent_change": 0.0,
         "volume": "0",
         "display_symbol": "CRUDEOILM19OCT26FUT",
         "raw": {
@@ -307,8 +307,8 @@
           "last_volume": "0",
           "avg_cost": "0",
           "open_int": "29241",
-          "change": "309",
-          "per_change": "3.6123",
+          "change": "0",
+          "per_change": "0",
           "low_price_range": "8508.48",
           "high_price_range": "9217.52",
           "year_high": "0",
@@ -403,19 +403,19 @@
   "xauusd": {
     "connected": true,
     "symbol": "XAUUSD",
-    "price": 4179.200195,
+    "price": 4175.5,
     "open": null,
     "high": null,
     "low": null,
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-09T03:00:23.427Z",
+    "timestamp": "2026-10-09T03:21:37.520Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-09T03:00:23.427Z",
+      "as_of": "2026-10-09T03:21:37.520Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -423,7 +423,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 4,
+    "score": 5,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -474,7 +474,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 4,
+      "score": 5,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791514893
+    "updated_at": 1791516128
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
