@@ -1,12 +1,17 @@
 {
   "mode": "PAPER_ONLY",
-  "open_trade": {
-    "side": "BUY",
-    "entry": 83275.56,
-    "stop": 83255.56,
-    "target": 83297.56,
-    "opened_at": 1791547448,
-    "reason": "15m high breakout + 5m body-close confirmation + 1m charge/OB-proxy trigger"
-  },
-  "trades": []
+  "open_trade": null,
+  "trades": [
+    {
+      "side": "BUY",
+      "entry": 83275.56,
+      "stop": 83255.56,
+      "target": 83297.56,
+      "opened_at": 1791547448,
+      "reason": "15m high breakout + 5m body-close confirmation + 1m charge/OB-proxy trigger",
+      "exit": 83297.56,
+      "exit_reason": "TARGET",
+      "pnl_points": 22.0
+    }
+  ]
 }
