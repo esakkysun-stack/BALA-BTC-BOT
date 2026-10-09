@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791582298,
+  "timestamp": 1791583149,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82539.99,
+    "price": 82529.99,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -410,12 +410,12 @@
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-09T21:43:44.570Z",
+    "timestamp": "2026-10-09T21:59:00.007Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-09T21:43:44.570Z",
+      "as_of": "2026-10-09T21:59:00.007Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791582296
+    "updated_at": 1791583147
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
@@ -553,13 +553,13 @@
   "kotak_bala_error": "NIFTY: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; SENSEX: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; GOLD MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}; CRUDE OIL MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}",
   "breaker_strategy": {
     "signal": {
-      "state": "NEUTRAL",
+      "state": "PUT",
       "side": "WAIT",
       "entry": null,
       "stop": null,
       "target": null,
-      "reason": "15m high touched/broken but 5m body did not close above it",
-      "timestamp": 1791582298
+      "reason": "PUT bias confirmed; waiting for 1m charge break and OB retest trigger",
+      "timestamp": 1791583149
     },
     "paper": {
       "mode": "PAPER_ONLY",
