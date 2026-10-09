@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791514766,
+  "timestamp": 1791514829,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82135.02,
+    "price": 82100.01,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -14,8 +14,8 @@
         "name": "Nifty 50",
         "segment": "nse_cm",
         "price": 22231.8,
-        "change": -371.25,
-        "percent_change": -1.6425,
+        "change": 0.0,
+        "percent_change": 0.0,
         "volume": "0",
         "display_symbol": "Nifty 50-IN",
         "raw": {
@@ -30,8 +30,8 @@
           "last_volume": "0",
           "avg_cost": "0",
           "open_int": "0",
-          "change": "-371.25",
-          "per_change": "-1.6425",
+          "change": "0",
+          "per_change": "0",
           "low_price_range": "0",
           "high_price_range": "0",
           "year_high": "0",
@@ -423,7 +423,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 3,
+    "score": 2,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -474,7 +474,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 3,
+      "score": 2,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791514766
+    "updated_at": 1791514829
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
