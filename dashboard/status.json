@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791570902,
+  "timestamp": 1791572137,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82474.01,
+    "price": 82500.0,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -403,19 +403,19 @@
   "xauusd": {
     "connected": true,
     "symbol": "XAUUSD",
-    "price": 4194.100098,
+    "price": 4199.100098,
     "open": null,
     "high": null,
     "low": null,
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-09T18:33:49.707Z",
+    "timestamp": "2026-10-09T18:55:27.633Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-09T18:33:49.707Z",
+      "as_of": "2026-10-09T18:55:27.633Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -423,7 +423,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 4,
+    "score": 1,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -474,7 +474,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 4,
+      "score": 1,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791570899
+    "updated_at": 1791572135
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
@@ -553,24 +553,17 @@
   "kotak_bala_error": "NIFTY: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; SENSEX: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; GOLD MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}; CRUDE OIL MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}",
   "breaker_strategy": {
     "signal": {
-      "state": "PUT",
+      "state": "NEUTRAL",
       "side": "WAIT",
       "entry": null,
       "stop": null,
       "target": null,
-      "reason": "PUT bias confirmed; waiting for 1m charge break and OB retest trigger",
-      "timestamp": 1791570902
+      "reason": "15m low touched/broken but 5m body did not close below it",
+      "timestamp": 1791572137
     },
     "paper": {
       "mode": "PAPER_ONLY",
-      "open_trade": {
-        "side": "SELL",
-        "entry": 82474.0,
-        "stop": 82494.0,
-        "target": 82452.0,
-        "opened_at": 1791570838,
-        "reason": "15m low breakdown + 5m body-close confirmation + 1m charge/OB-proxy trigger"
-      },
+      "open_trade": null,
       "trades": [
         {
           "side": "BUY",
@@ -582,6 +575,17 @@
           "exit": 83297.56,
           "exit_reason": "TARGET",
           "pnl_points": 22.0
+        },
+        {
+          "side": "SELL",
+          "entry": 82474.0,
+          "stop": 82494.0,
+          "target": 82452.0,
+          "opened_at": 1791570838,
+          "reason": "15m low breakdown + 5m body-close confirmation + 1m charge/OB-proxy trigger",
+          "exit": 82494.0,
+          "exit_reason": "STOP",
+          "pnl_points": -20.0
         }
       ]
     },
