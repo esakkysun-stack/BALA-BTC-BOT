@@ -1,0 +1,22 @@
+name: Breaker Strategy Tests
+on:
+  push:
+    paths:
+      - "backend/breaker_strategy.py"
+      - "backend/test_breaker_strategy.py"
+      - ".github/workflows/breaker-tests.yml"
+  pull_request:
+    paths:
+      - "backend/breaker_strategy.py"
+      - "backend/test_breaker_strategy.py"
+      - ".github/workflows/breaker-tests.yml"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run unit tests
+        run: PYTHONPATH=backend python -m unittest -v backend.test_breaker_strategy
