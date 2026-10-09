@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791514829,
+  "timestamp": 1791514893,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82100.01,
+    "price": 82171.28,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -104,8 +104,8 @@
         "name": "SENSEX",
         "segment": "bse_cm",
         "price": 71593.24,
-        "change": -1045.46,
-        "percent_change": -1.4393,
+        "change": 0.0,
+        "percent_change": 0.0,
         "volume": "0",
         "display_symbol": "SENSEX-IN",
         "raw": {
@@ -120,8 +120,8 @@
           "last_volume": "0",
           "avg_cost": "0",
           "open_int": "0",
-          "change": "-1045.46",
-          "per_change": "-1.4393",
+          "change": "0",
+          "per_change": "0",
           "low_price_range": "0",
           "high_price_range": "0",
           "year_high": "0",
@@ -403,19 +403,19 @@
   "xauusd": {
     "connected": true,
     "symbol": "XAUUSD",
-    "price": 4180.700195,
+    "price": 4179.200195,
     "open": null,
     "high": null,
     "low": null,
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-09T02:59:16.994Z",
+    "timestamp": "2026-10-09T03:00:23.427Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-09T02:59:16.994Z",
+      "as_of": "2026-10-09T03:00:23.427Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -423,7 +423,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 2,
+    "score": 4,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -474,7 +474,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 2,
+      "score": 4,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791514829
+    "updated_at": 1791514893
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
