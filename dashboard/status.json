@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791570772,
+  "timestamp": 1791570838,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82474.0,
+    "price": 82492.22,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -403,19 +403,19 @@
   "xauusd": {
     "connected": true,
     "symbol": "XAUUSD",
-    "price": 4196.899902,
+    "price": 4194.399902,
     "open": null,
     "high": null,
     "low": null,
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-09T18:31:03.710Z",
+    "timestamp": "2026-10-09T18:32:44.783Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-09T18:31:03.710Z",
+      "as_of": "2026-10-09T18:32:44.783Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791570771
+    "updated_at": 1791570836
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
@@ -554,16 +554,23 @@
   "breaker_strategy": {
     "signal": {
       "state": "PUT",
-      "side": "WAIT",
-      "entry": null,
-      "stop": null,
-      "target": null,
-      "reason": "PUT bias confirmed; waiting for 1m charge break and OB retest trigger",
-      "timestamp": 1791570772
+      "side": "SELL",
+      "entry": 82474.0,
+      "stop": 82494.0,
+      "target": 82452.0,
+      "reason": "15m low breakdown + 5m body-close confirmation + 1m charge/OB-proxy trigger",
+      "timestamp": 1791570838
     },
     "paper": {
       "mode": "PAPER_ONLY",
-      "open_trade": null,
+      "open_trade": {
+        "side": "SELL",
+        "entry": 82474.0,
+        "stop": 82494.0,
+        "target": 82452.0,
+        "opened_at": 1791570838,
+        "reason": "15m low breakdown + 5m body-close confirmation + 1m charge/OB-proxy trigger"
+      },
       "trades": [
         {
           "side": "BUY",

@@ -1,6 +1,13 @@
 {
   "mode": "PAPER_ONLY",
-  "open_trade": null,
+  "open_trade": {
+    "side": "SELL",
+    "entry": 82474.0,
+    "stop": 82494.0,
+    "target": 82452.0,
+    "opened_at": 1791570838,
+    "reason": "15m low breakdown + 5m body-close confirmation + 1m charge/OB-proxy trigger"
+  },
   "trades": [
     {
       "side": "BUY",
