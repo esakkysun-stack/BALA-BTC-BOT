@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791626807,
+  "timestamp": 1791627847,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82847.43,
+    "price": 82808.73,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -410,12 +410,12 @@
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-10T10:05:36.994Z",
+    "timestamp": "2026-10-10T10:23:42.615Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-10T10:05:36.994Z",
+      "as_of": "2026-10-10T10:23:42.615Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -423,7 +423,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 2,
+    "score": 5,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -474,7 +474,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 2,
+      "score": 5,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791626805
+    "updated_at": 1791627845
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
@@ -559,7 +559,7 @@
       "stop": null,
       "target": null,
       "reason": "PUT bias confirmed; waiting for 1m charge break and OB retest trigger",
-      "timestamp": 1791626807
+      "timestamp": 1791627847
     },
     "paper": {
       "mode": "PAPER_ONLY",
