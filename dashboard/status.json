@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791611809,
+  "timestamp": 1791611874,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82783.23,
+    "price": 82806.0,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -410,12 +410,12 @@
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-10T05:55:34.570Z",
+    "timestamp": "2026-10-10T05:56:40.537Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-10T05:55:34.570Z",
+      "as_of": "2026-10-10T05:56:40.537Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -423,7 +423,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 4,
+    "score": 5,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -440,7 +440,7 @@
       "t1": null,
       "t2": null,
       "status": "DATA WAIT",
-      "reason": "Candle data unavailable: 15min: Service temporarily unavailable"
+      "reason": "Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}"
     },
     "SENSEX": {
       "side": "WAIT",
@@ -450,7 +450,7 @@
       "t1": null,
       "t2": null,
       "status": "DATA WAIT",
-      "reason": "Candle data unavailable: 15min: Service temporarily unavailable"
+      "reason": "Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}"
     },
     "GOLD MINI": {
       "side": "WAIT",
@@ -474,7 +474,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 4,
+      "score": 5,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791611806
+    "updated_at": 1791611872
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
@@ -550,7 +550,7 @@
     ],
     "note": "Do not enable live execution until signal/data/order tests pass."
   },
-  "kotak_bala_error": "NIFTY: Candle data unavailable: 15min: Service temporarily unavailable; SENSEX: Candle data unavailable: 15min: Service temporarily unavailable; GOLD MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}; CRUDE OIL MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}",
+  "kotak_bala_error": "NIFTY: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; SENSEX: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; GOLD MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}; CRUDE OIL MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}",
   "breaker_strategy": {
     "signal": {
       "state": "CALL",
@@ -559,7 +559,7 @@
       "stop": null,
       "target": null,
       "reason": "CALL bias confirmed; waiting for 1m charge break and OB retest trigger",
-      "timestamp": 1791611809
+      "timestamp": 1791611874
     },
     "paper": {
       "mode": "PAPER_ONLY",
