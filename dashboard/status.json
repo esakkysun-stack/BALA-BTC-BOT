@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791613162,
+  "timestamp": 1791613227,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82800.0,
+    "price": 82774.87,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -410,12 +410,12 @@
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-10T06:18:08.678Z",
+    "timestamp": "2026-10-10T06:19:15.985Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-10T06:18:08.678Z",
+      "as_of": "2026-10-10T06:19:15.985Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -460,7 +460,7 @@
       "t1": null,
       "t2": null,
       "status": "DATA WAIT",
-      "reason": "Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}"
+      "reason": "Candle data unavailable: 15min: Service temporarily unavailable"
     },
     "CRUDE OIL MINI": {
       "side": "WAIT",
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791613160
+    "updated_at": 1791613225
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
@@ -550,16 +550,16 @@
     ],
     "note": "Do not enable live execution until signal/data/order tests pass."
   },
-  "kotak_bala_error": "NIFTY: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; SENSEX: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; GOLD MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}; CRUDE OIL MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}",
+  "kotak_bala_error": "NIFTY: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; SENSEX: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; GOLD MINI: Candle data unavailable: 15min: Service temporarily unavailable; CRUDE OIL MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}",
   "breaker_strategy": {
     "signal": {
-      "state": "PUT",
+      "state": "NEUTRAL",
       "side": "WAIT",
       "entry": null,
       "stop": null,
       "target": null,
-      "reason": "PUT bias confirmed; waiting for 1m charge break and OB retest trigger",
-      "timestamp": 1791613162
+      "reason": "15m low touched/broken but 5m body did not close below it",
+      "timestamp": 1791613227
     },
     "paper": {
       "mode": "PAPER_ONLY",
