@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791660600,
+  "timestamp": 1791672783,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 83042.7,
+    "price": 83075.46,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -410,12 +410,12 @@
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-10T19:28:47.654Z",
+    "timestamp": "2026-10-10T22:50:01.062Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-10T19:28:47.654Z",
+      "as_of": "2026-10-10T22:50:01.062Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791660598
+    "updated_at": 1791672782
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
@@ -558,8 +558,8 @@
       "entry": null,
       "stop": null,
       "target": null,
-      "reason": "No confirmed 5m body close beyond previous 15m range",
-      "timestamp": 1791660600
+      "reason": "15m high touched/broken but 5m body did not close above it",
+      "timestamp": 1791672783
     },
     "paper": {
       "mode": "PAPER_ONLY",
