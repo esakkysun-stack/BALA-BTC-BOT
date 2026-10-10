@@ -1,5 +1,5 @@
 {
-  "timestamp": 1791633172,
+  "timestamp": 1791633235,
   "market": {
     "symbol": "BTCUSDT",
     "price": 82888.01,
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791633170
+    "updated_at": 1791633234
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
@@ -559,7 +559,7 @@
       "stop": null,
       "target": null,
       "reason": "15m low touched/broken but 5m body did not close below it",
-      "timestamp": 1791633172
+      "timestamp": 1791633235
     },
     "paper": {
       "mode": "PAPER_ONLY",
