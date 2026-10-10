@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791617030,
+  "timestamp": 1791617095,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82640.3,
+    "price": 82640.31,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791617029
+    "updated_at": 1791617094
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
@@ -559,7 +559,7 @@
       "stop": null,
       "target": null,
       "reason": "PUT bias confirmed; waiting for 1m charge break and OB retest trigger",
-      "timestamp": 1791617030
+      "timestamp": 1791617095
     },
     "paper": {
       "mode": "PAPER_ONLY",
