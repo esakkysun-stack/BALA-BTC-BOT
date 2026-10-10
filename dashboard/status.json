@@ -1,5 +1,5 @@
 {
-  "timestamp": 1791658377,
+  "timestamp": 1791658443,
   "market": {
     "symbol": "BTCUSDT",
     "price": 83047.0,
@@ -423,7 +423,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 2,
+    "score": 1,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -474,7 +474,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 2,
+      "score": 1,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791658375
+    "updated_at": 1791658441
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
@@ -559,7 +559,7 @@
       "stop": null,
       "target": null,
       "reason": "No confirmed 5m body close beyond previous 15m range",
-      "timestamp": 1791658377
+      "timestamp": 1791658443
     },
     "paper": {
       "mode": "PAPER_ONLY",
