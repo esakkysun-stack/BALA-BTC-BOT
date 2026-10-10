@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791617159,
+  "timestamp": 1791618170,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82640.3,
+    "price": 82754.63,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -410,12 +410,12 @@
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-10T07:24:47.710Z",
+    "timestamp": "2026-10-10T07:42:40.951Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-10T07:24:47.710Z",
+      "as_of": "2026-10-10T07:42:40.951Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -423,7 +423,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 2,
+    "score": 1,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -474,7 +474,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 2,
+      "score": 1,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791617157
+    "updated_at": 1791618168
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
@@ -553,13 +553,13 @@
   "kotak_bala_error": "NIFTY: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; SENSEX: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; GOLD MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}; CRUDE OIL MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}",
   "breaker_strategy": {
     "signal": {
-      "state": "PUT",
+      "state": "NEUTRAL",
       "side": "WAIT",
       "entry": null,
       "stop": null,
       "target": null,
-      "reason": "PUT bias confirmed; waiting for 1m charge break and OB retest trigger",
-      "timestamp": 1791617159
+      "reason": "15m low touched/broken but 5m body did not close below it",
+      "timestamp": 1791618170
     },
     "paper": {
       "mode": "PAPER_ONLY",
