@@ -1,8 +1,8 @@
 {
-  "timestamp": 1791594542,
+  "timestamp": 1791595699,
   "market": {
     "symbol": "BTCUSDT",
-    "price": 82597.66,
+    "price": 82762.01,
     "source": "Binance public market-data feed",
     "error": null
   },
@@ -410,12 +410,12 @@
     "previous_close": null,
     "change": null,
     "percent_change": null,
-    "timestamp": "2026-10-10T01:07:51.360Z",
+    "timestamp": "2026-10-10T01:27:49.159Z",
     "source": "XAUS XAU/USD spot",
     "source_type": "spot",
     "data_state": {
       "status": "fresh",
-      "as_of": "2026-10-10T01:07:51.360Z",
+      "as_of": "2026-10-10T01:27:49.159Z",
       "source": "upstream",
       "age_seconds": 0
     },
@@ -423,7 +423,7 @@
   },
   "signal": {
     "side": "WAIT",
-    "score": 2,
+    "score": 5,
     "entry": null,
     "stop": null,
     "t1": null,
@@ -474,7 +474,7 @@
     },
     "BTC / USDT": {
       "side": "WAIT",
-      "score": 2,
+      "score": 5,
       "entry": null,
       "stop": null,
       "t1": null,
@@ -537,7 +537,7 @@
         "paper_only": true
       }
     ],
-    "updated_at": 1791594540
+    "updated_at": 1791595697
   },
   "execution": "PAPER_ONLY",
   "live_execution": false,
@@ -553,13 +553,13 @@
   "kotak_bala_error": "NIFTY: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; SENSEX: Candle data unavailable: 15min: {'code': 422, 'message': 'Invalid neosymbol'}; GOLD MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}; CRUDE OIL MINI: Candle data unavailable: 15min: {'code': 422, 'message': 'Historical data is not supported for this exchange.'}",
   "breaker_strategy": {
     "signal": {
-      "state": "NEUTRAL",
+      "state": "CALL",
       "side": "WAIT",
       "entry": null,
       "stop": null,
       "target": null,
-      "reason": "No confirmed 5m body close beyond previous 15m range",
-      "timestamp": 1791594542
+      "reason": "CALL bias confirmed; waiting for 1m charge break and OB retest trigger",
+      "timestamp": 1791595699
     },
     "paper": {
       "mode": "PAPER_ONLY",
